@@ -1,1 +1,6 @@
-# Project-2
+## Technologies used:
+- React Bootstrap;
+- Github project;
+- Kanban;
+- React;
+- Javascript.
