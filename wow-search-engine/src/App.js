@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
+
+import SearchBar from "./Search-bar.jsx";
+
 class App extends Component {
     render() {
         return (
@@ -10,6 +13,9 @@ class App extends Component {
                         Enter the name of a player below and found out more about his stats and other cool stuff !
                     </p>
                 </header>
+                <body>
+                    <SearchBar />
+                </body>
             </div>
         );
     }
