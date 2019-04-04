@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import wowbanner from "./assets/images/wowBanner.png";
+import wowbanner from "./assets/images/wowBanner.svg";
 
 class Banner extends Component {
     render() {
         return (
             <div>
                 <Container>
-                    <Row className="justify-content-md-center">
-                        <Col md="auto">
-                            <Image src={wowbanner} alt="image" fluid />
+                    <Row>
+                        <Col xl={{ offset: 3 }} />
+                        <Col>
+                            {/* TODO: Fix responsiveness */}
+                            {/* TODO : Create a card on Trello */}
+                            <Image src={wowbanner} alt="image" />
                         </Col>
                     </Row>
                 </Container>
