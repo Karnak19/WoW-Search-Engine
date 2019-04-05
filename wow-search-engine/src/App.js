@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
+import Cardcharacter from "./Character";
 import Banner from "./Banner.jsx";
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
                         Enter the name of a player below and found out more about his stats and other cool stuff !
                     </p>
                 </header>
-
+                <Cardcharacter />
             </div>
         );
     }
