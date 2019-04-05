@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-
+import ModalForm from "./ModalForm";
 import SearchBar from "./Search-bar.jsx";
 
 import Cardcharacter from "./Character";
@@ -24,11 +24,13 @@ class App extends Component {
                         Enter the name of a player below and found out more about his stats and other cool stuff !
                     </p>
                 </header>
-
+                <footer>
+                    <ModalForm />
+                </footer>
                 <body>
                     <SearchBar />
                 </body>
-=======
+
                 <Cardcharacter />
 
             </div>
