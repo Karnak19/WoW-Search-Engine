@@ -8,8 +8,7 @@ class Banner extends Component {
             <div>
                 <Container>
                     <Row>
-                        <Col xl={{ offset: 3 }} />
-                        <Col>
+                        <Col md={{ span: 3, offset: 3 }}>
                             {/* TODO: Fix responsiveness */}
                             {/* TODO : Create a card on Trello */}
                             <Image src={wowbanner} alt="image" />
