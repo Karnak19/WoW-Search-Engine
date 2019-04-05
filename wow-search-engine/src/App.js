@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import "./App.css";
 
 import ModalForm from "./ModalForm";
+import SearchBar from "./Search-bar.jsx";
+
 import Cardcharacter from "./Character";
 import Banner from "./Banner.jsx";
+
 
 class App extends Component {
     render() {
@@ -24,7 +27,12 @@ class App extends Component {
                 <footer>
                     <ModalForm />
                 </footer>
+                <body>
+                    <SearchBar />
+                </body>
+
                 <Cardcharacter />
+
             </div>
         );
     }
