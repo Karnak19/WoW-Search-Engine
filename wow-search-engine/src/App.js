@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 
+
+import SearchBar from "./Search-bar.jsx";
+
 import Cardcharacter from "./Character";
 import Banner from "./Banner.jsx";
+
 
 class App extends Component {
     render() {
@@ -20,7 +24,13 @@ class App extends Component {
                         Enter the name of a player below and found out more about his stats and other cool stuff !
                     </p>
                 </header>
+
+                <body>
+                    <SearchBar />
+                </body>
+=======
                 <Cardcharacter />
+
             </div>
         );
     }
