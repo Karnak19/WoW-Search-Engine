@@ -14,3 +14,29 @@ body {
 .SearchEngine {
     margin-top: 100px;
 }
+#searchBar1 {
+    width: 1000px;
+    height: 60px;
+    font-size: 1.5em;
+}
+.ButtonSearch {
+    color: gold;
+    background-color: brown;
+}
+
+.cardTop {
+    margin-top: 200px;
+    background-color: blue;
+}
+
+.TopCard {
+    background-color: blue;
+}
+
+footer {
+    margin-top: 100px;
+    background-color: maroon;
+}
+.ButtonCSS {
+    background-color: maroon;
+}

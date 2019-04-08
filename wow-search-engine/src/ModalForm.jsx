@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Container, Col } from "react-bootstrap";
 
 import FormContact from "./Form.jsx";
 
@@ -26,9 +26,14 @@ class ModalForm extends React.Component {
     render() {
         return (
             <>
-                <Button variant="primary" onClick={this.handleShow} className="ButtonCSS">
-                    Contact Us
-                </Button>
+                <Container className="ButtonCSS">
+                    <Col className="ButtonCSS" md={{ span: 3, offset: 5 }}>
+                        <Button variant="primary" onClick={this.handleShow}>
+                            {" "}
+                            Contact Us
+                        </Button>
+                    </Col>
+                </Container>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header>
