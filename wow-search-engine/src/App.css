@@ -58,6 +58,7 @@ body {
     background-color: #350e02;
     color: gold;
     font-family: "Comfortaa", cursive;
+    text-align: center;
 }
 .ModalCharacter {
     background-color: gold;
@@ -71,6 +72,10 @@ body {
     border: rgb(83, 42, 8);
     margin-top: 10px;
     border-radius: 10px;
+}
+#cardfull {
+    display: flex;
+    justify-content: center;
 }
 .ButtonFooter:hover {
     background-color: gold;
