@@ -10,7 +10,7 @@ import Banner from "./Banner.jsx";
 class App extends Component {
     render() {
         return (
-            <div>
+            <div className="App">
                 <header>
                     <Banner />
                 </header>
@@ -27,6 +27,7 @@ class App extends Component {
 
                 <footer>
                     <ModalForm />
+                    <p className="FooterCSS">Website by Sylène, Stéphane and Enzo.</p>
                 </footer>
             </div>
         );

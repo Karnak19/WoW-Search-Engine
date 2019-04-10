@@ -26,9 +26,9 @@ class ModalForm extends React.Component {
     render() {
         return (
             <>
-                <Container className="ButtonCSS">
-                    <Col className="ButtonCSS" md={{ span: 3, offset: 5 }}>
-                        <Button variant="primary" onClick={this.handleShow}>
+                <Container className="FooterCSS">
+                    <Col className="FooterCSS">
+                        <Button className="ButtonFooter" variant="primary" onClick={this.handleShow}>
                             {" "}
                             Contact Us
                         </Button>

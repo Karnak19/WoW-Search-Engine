@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Modal, Container, Col, Card } from "react-bootstrap";
 
-class ModalForm extends React.Component {
+class CardCharacter extends React.Component {
     constructor(props, context) {
         super(props, context);
 
@@ -24,32 +24,33 @@ class ModalForm extends React.Component {
     render() {
         return (
             <>
-                <Container className="">
-                    <Col className="" md={{ span: 3, offset: 5 }}>
+                <div>
+                    <Container>
                         <Card className="cardTop" style={{ width: "18rem" }} onClick={this.handleShow}>
                             <Card.Img
                                 variant="top"
                                 src="https://vignette.wikia.nocookie.net/wow/images/3/33/Paladin_%28Classe%29.png/revision/latest?cb=20150814164946&path-prefix=fr"
                             />
                             <Card.Body className="TopCard">
-                                <Card.Title className="TopCard">Card Title</Card.Title>
+                                <Card.Title className="TopCard">Top Five Players</Card.Title>
                                 <Card.Text className="TopCard">
                                     Some quick example text to build on the card title and make up the bulk of the card's content.
                                 </Card.Text>
-                                <Button variant="primary">Click here !</Button>
+                                <Button className="ButtonFooter" variant="primary">
+                                    Click here !
+                                </Button>
                             </Card.Body>
                         </Card>
-                    </Col>
-                </Container>
-
+                    </Container>
+                </div>
                 <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header>
+                    <Modal.Header className="ModalCharacter">
                         <Modal.Title>Top Five Players</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body className="TopCard">
                         <Container>
                             <Col>
-                                <Card className="cardTop" style={{ width: "25rem" }} onClick={this.handleShow}>
+                                <Card className="TopCard" style={{ width: "25rem" }} onClick={this.handleShow}>
                                     <Card.Img
                                         variant="top"
                                         src="https://vignette.wikia.nocookie.net/wow/images/3/33/Paladin_%28Classe%29.png/revision/latest?cb=20150814164946&path-prefix=fr"
@@ -64,8 +65,8 @@ class ModalForm extends React.Component {
                             </Col>
                         </Container>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>
+                    <Modal.Footer className="ModalCharacter">
+                        <Button className="ButtonFooter" variant="secondary" onClick={this.handleClose}>
                             Close
                         </Button>
                     </Modal.Footer>
@@ -75,4 +76,4 @@ class ModalForm extends React.Component {
     }
 }
 
-export default ModalForm;
+export default CardCharacter;

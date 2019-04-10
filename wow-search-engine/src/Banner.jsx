@@ -8,10 +8,10 @@ class Banner extends Component {
             <div>
                 <Container>
                     <Row>
-                        <Col md={{ span: 3, offset: 3 }}>
+                        <Col>
                             {/* TODO: Fix responsiveness */}
                             {/* TODO : Create a card on Trello */}
-                            <Image src={wowbanner} alt="image" />
+                            <Image src={wowbanner} alt="image" className="BannerCss" />
                         </Col>
                     </Row>
                 </Container>

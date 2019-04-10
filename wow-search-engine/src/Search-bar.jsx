@@ -12,8 +12,8 @@ class SearchBar extends Component {
             <div className="SearchEngine">
                 <Container>
                     <Row>
-                        <Col md={{ span: 3 }}>
-                            <InputGroup className="mb-6" size="lg">
+                        <Col>
+                            <InputGroup size="lg">
                                 <InputGroup.Append>
                                     {/* Si ne fonctionne pas revérifier Appen/Prepend du Imputgroup etc */}
                                     <FormControl
