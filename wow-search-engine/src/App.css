@@ -34,6 +34,7 @@ body {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+
 .ButtonSearch {
     width: 120px;
     color: gold;
@@ -73,10 +74,12 @@ body {
     margin-top: 10px;
     border-radius: 10px;
 }
+
 #cardfull {
     display: flex;
     justify-content: center;
 }
+
 .ButtonFooter:hover {
     background-color: gold;
     color: #021035;

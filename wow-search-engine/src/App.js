@@ -4,7 +4,7 @@ import "./App.css";
 import ModalForm from "./ModalForm";
 import SearchBar from "./Search-bar.jsx";
 
-import Cardcharacter from "./Character";
+import Top5Char from "./top5Char";
 import Banner from "./Banner.jsx";
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
 
                     <SearchBar />
 
-                    <Cardcharacter />
+                    <Top5Char />
                 </body>
 
                 <footer>

@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Modal, Container, Col, Card } from "react-bootstrap";
+import { Button, Modal, Container, Col, Card, Table } from "react-bootstrap";
 
-class CardCharacter extends React.Component {
+class Top5Char extends React.Component {
     constructor(props, context) {
         super(props, context);
 
@@ -25,7 +25,7 @@ class CardCharacter extends React.Component {
         return (
             <>
                 <div>
-                    <Container>
+                    <Container id="cardfull">
                         <Card className="cardTop" style={{ width: "18rem" }} onClick={this.handleShow}>
                             <Card.Img
                                 variant="top"
@@ -51,15 +51,36 @@ class CardCharacter extends React.Component {
                         <Container>
                             <Col>
                                 <Card className="TopCard" style={{ width: "25rem" }} onClick={this.handleShow}>
-                                    <Card.Img
-                                        variant="top"
-                                        src="https://vignette.wikia.nocookie.net/wow/images/3/33/Paladin_%28Classe%29.png/revision/latest?cb=20150814164946&path-prefix=fr"
-                                    />
                                     <Card.Body className="TopCard">
-                                        <Card.Title className="TopCard">Card Title</Card.Title>
-                                        <Card.Text className="TopCard">
-                                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                                        </Card.Text>
+                                        <Table striped bordered hover variant="dark">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Username</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td colSpan="2">Larry the Bird</td>
+                                                    <td>@twitter</td>
+                                                </tr>
+                                            </tbody>
+                                        </Table>
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -76,4 +97,4 @@ class CardCharacter extends React.Component {
     }
 }
 
-export default CardCharacter;
+export default Top5Char;

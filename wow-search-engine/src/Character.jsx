@@ -25,7 +25,7 @@ class CardCharacter extends React.Component {
         return (
             <>
                 <div>
-                    <Container id="cardfull">
+                    <Container>
                         <Card className="cardTop" style={{ width: "18rem" }} onClick={this.handleShow}>
                             <Card.Img
                                 variant="top"
