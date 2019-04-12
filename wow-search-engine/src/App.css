@@ -1,0 +1,42 @@
+body {
+    background-color: #021035;
+}
+
+.Intro {
+    color: gold;
+    text-align: justify;
+    margin-left: 150px;
+    margin-top: 100px;
+    margin-right: 150px;
+    font-family: "Comfortaa", cursive;
+}
+
+.SearchEngine {
+    margin-top: 100px;
+}
+#searchBar1 {
+    width: 1000px;
+    height: 60px;
+    font-size: 1.5em;
+}
+.ButtonSearch {
+    color: gold;
+    background-color: brown;
+}
+
+.cardTop {
+    margin-top: 200px;
+    background-color: blue;
+}
+
+.TopCard {
+    background-color: blue;
+}
+
+footer {
+    margin-top: 100px;
+    background-color: maroon;
+}
+.ButtonCSS {
+    background-color: maroon;
+}
