@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Modal, Container, Col, Card, Spinner } from "react-bootstrap";
+import Axios from "axios";
 
 class PageCharacter extends React.Component {
     constructor(props) {
@@ -16,6 +17,13 @@ class PageCharacter extends React.Component {
         this.setState({
             isLoading: true
         });
+        Axios.get("https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=raquette&fields=raid_progression")
+            .then(response => {
+                this.setState({
+                    name: response.data.ViewCharacterProfileResponse.name
+                });
+            })
+            .catch(error => console.log(error));
     }
 
     render() {
