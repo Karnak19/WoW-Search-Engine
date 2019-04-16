@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import wowbanner from "./assets/images/wowBanner.svg";
+import wowbanner from "../assets/images/wowBanner.svg";
 
 class Banner extends Component {
     render() {
