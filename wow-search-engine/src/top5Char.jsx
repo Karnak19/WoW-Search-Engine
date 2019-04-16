@@ -56,9 +56,9 @@ class Top5Char extends React.Component {
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>First Name</th>
-                                                    <th>Last Name</th>
-                                                    <th>Username</th>
+                                                    <th>Name</th>
+                                                    <th>Level</th>
+                                                    <th>Guild</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -76,8 +76,21 @@ class Top5Char extends React.Component {
                                                 </tr>
                                                 <tr>
                                                     <td>3</td>
-                                                    <td colSpan="2">Larry the Bird</td>
-                                                    <td>@twitter</td>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
                                                 </tr>
                                             </tbody>
                                         </Table>

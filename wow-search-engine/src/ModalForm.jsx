@@ -34,7 +34,6 @@ class ModalForm extends React.Component {
                         </Button>
                     </Col>
                 </Container>
-
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header>
                         <Modal.Title>To contact Us</Modal.Title>

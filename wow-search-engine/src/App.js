@@ -14,17 +14,16 @@ class App extends Component {
                 <header>
                     <Banner />
                 </header>
-                <body>
+                <section>
                     <h2 className="Intro">
                         Hello player ! Welcome on WoW-SearchEngine ! Here you're can search for you favorite player or even for yourself ! Try it !
                         Enter the name of a player below and found out more about his stats and other cool stuff !
                     </h2>
 
-                    <SearchBar />
+                    <SearchBar getUser={this.getUser} />
 
                     <Top5Char />
-                </body>
-
+                </section>
                 <footer>
                     <ModalForm />
                     <p className="FooterCSS">Website by Sylène, Stéphane and Enzo.</p>
