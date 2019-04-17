@@ -1,90 +1,44 @@
 import React from "react";
-import { Button, Modal, Container, Col, Card, Spinner } from "react-bootstrap";
 import Axios from "axios";
+import { Link, Redirect } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
-class PageCharacter extends React.Component {
+import CharacterComponent from "../components/CharacterComponent";
+
+class ResultSearch extends React.Component {
     constructor(props) {
         super(props);
-        this.handleShow = this.handleShow.bind(this);
         this.state = {
+            characterSearch: [],
             isLoading: false,
-            ViewCharacterProfileResponse: "",
-            CharacterGearSchema: ""
+            isError: false
         };
     }
 
     componentDidMount() {
-        this.setState({
-            isLoading: true
-        });
+        this.setState({ isLoading: true });
         Axios.get("https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=raquette&fields=raid_progression")
-            .then(response => {
-                this.setState({
-                    name: response.data.ViewCharacterProfileResponse.name
-                });
+            .then(res => {
+                this.setState({ characterSearch: res.data, isLoading: false });
             })
-            .catch(error => console.log(error));
+            .catch(() => this.setState({ isError: true, isLoading: false }));
     }
-
     render() {
-        if (this.state.isLoading) {
-            return (
-                <div>
-                    <Spinner animation="border" variant="danger" />
-                </div>
-            );
+        // const characterNamefilter = this.props.match.params.filter;
+        const { isError, isLoading } = this.state;
+        if (isError) {
+            return <Redirect to="/" />;
+        }
+        if (isLoading) {
+            return <Spinner animation="border" variant="danger" />;
         }
         return (
-            <>
-                <div>
-                    <Container>
-                        <Card className="cardTop" style={{ width: "18rem" }} onClick={this.handleShow}>
-                            <Card.Img
-                                variant="top"
-                                src="https://vignette.wikia.nocookie.net/wow/images/3/33/Paladin_%28Classe%29.png/revision/latest?cb=20150814164946&path-prefix=fr"
-                            />
-                            <Card.Body className="TopCard">
-                                <Card.Title className="TopCard">{ViewCharacterProfileResponse.name}</Card.Title>
-                                <Card.Text className="TopCard">
-                                    Race : {ViewCharacterProfileResponse.race}
-                                    Class : {ViewCharacterProfileResponse.class}
-                                    Gender : {ViewCharacterProfileResponse.gender}
-                                    Level : {CharacterGearSchema.item_level_total}
-                                </Card.Text>
-                                <Button className="ButtonFooter" variant="primary">
-                                    Link Oficial page {ViewCharacterProfileResponse.profile_url}
-                                </Button>
-                            </Card.Body>
-                        </Card>
-                    </Container>
-                </div>
-                {/* 
-                <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header className="ModalCharacter">
-                        <Modal.Title>Top Five Players</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body className="TopCard">
-                        <Container>
-                            <Col>
-                                <Card className="TopCard" style={{ width: "25rem" }} onClick={this.handleShow}>
-                                    <Card.Img
-                                        variant="top"
-                                        src="https://vignette.wikia.nocookie.net/wow/images/3/33/Paladin_%28Classe%29.png/revision/latest?cb=20150814164946&path-prefix=fr"
-                                    />
-                                    <Card.Body className="TopCard">
-                                        <Card.Title className="TopCard">Card Title</Card.Title>
-                                        <Card.Text className="TopCard">
-                                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        </Container>
-                    </Modal.Body>
-                </Modal> */}
-            </>
+            <div>
+                <Link to="/">Back Home</Link>
+                <CharacterComponent characterSearch={character => character.name} />
+            </div>
         );
     }
 }
 
-export default PageCharacter;
+export default ResultSearch;
