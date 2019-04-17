@@ -55,7 +55,7 @@ class SearchBar extends Component {
                                         aria-label="Large"
                                         aria-describedby="inputGroup-sizing-lg"
                                     />
-                                    <Link to="/resulat-search">
+                                    <Link to="/resultat-search">
                                         <Button onSubmit={this.submitForm} className="ButtonSearch">
                                             Search
                                         </Button>

@@ -76,7 +76,7 @@ body {
     border-radius: 10px;
 }
 
-#cardfull {
+.Cardfull {
     display: flex;
     justify-content: center;
 }

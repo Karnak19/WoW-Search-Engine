@@ -1,70 +1,44 @@
 import React from "react";
-import { Button, Container, Card, Spinner } from "react-bootstrap";
-import "../App.css";
 import Axios from "axios";
+import { Link, Redirect } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
-class PageCharacter extends React.Component {
+import CharacterComponent from "../components/CharacterComponent";
+
+class ResultSearch extends React.Component {
     constructor(props) {
         super(props);
-        this.handleShow = this.handleShow.bind(this);
         this.state = {
+            characterSearch: [],
             isLoading: false,
-            ViewCharacterProfileResponse: [""],
-            CharacterGearSchema: "",
-            name: ""
+            isError: false
         };
     }
 
     componentDidMount() {
-        this.setState({
-            isLoading: true
-        });
-        Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=raquette&fields=raid_progression`, {
-            headers: { Accept: "application/json" }
-        })
-            .then(response => {
-                this.setState({
-                    ViewCharacterProfileResponse: response.data
-                });
+        this.setState({ isLoading: true });
+        Axios.get("https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=raquette&fields=raid_progression")
+            .then(res => {
+                this.setState({ characterSearch: res.data, isLoading: false });
             })
-            .catch(error => console.log("error"));
+            .catch(() => this.setState({ isError: true, isLoading: false }));
     }
-
     render() {
-        if (this.state.isLoading) {
-            return (
-                <div>
-                    <Spinner animation="border" variant="danger" />
-                </div>
-            );
+        // const characterNamefilter = this.props.match.params.filter;
+        const { characterSearch, isError, isLoading } = this.state;
+        if (isError) {
+            return <Redirect to="/" />;
+        }
+        if (isLoading) {
+            return <Spinner animation="border" variant="danger" />;
         }
         return (
-            <>
-                <div>
-                    <Container>
-                        <Card className="cardTop" style={{ width: "18rem" }} onClick={this.handleShow}>
-                            <Card.Img
-                                variant="top"
-                                src="https://vignette.wikia.nocookie.net/wow/images/3/33/Paladin_%28Classe%29.png/revision/latest?cb=20150814164946&path-prefix=fr"
-                            />
-                            <Card.Body className="TopCard">
-                                <Card.Title className="TopCard">{this.state.ViewCharacterProfileResponse.name}</Card.Title>
-                                <Card.Text className="TopCard">
-                                    Race : {this.state.ViewCharacterProfileResponse.race}
-                                    Class : {this.state.ViewCharacterProfileResponse.class}
-                                    Gender : {this.state.ViewCharacterProfileResponse.gender}
-                                    Level : {this.state.CharacterGearSchema.item_level_total}
-                                </Card.Text>
-                                <Button className="ButtonFooter" variant="primary">
-                                    Link Official page {this.state.ViewCharacterProfileResponse.profile_url}
-                                </Button>
-                            </Card.Body>
-                        </Card>
-                    </Container>
-                </div>
-            </>
+            <div>
+                <Link to="/">Back Home</Link>
+                <CharacterComponent characterSearch={characterSearch} />
+            </div>
         );
     }
 }
 
-export default PageCharacter;
+export default ResultSearch;
