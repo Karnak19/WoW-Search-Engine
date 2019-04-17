@@ -37,6 +37,7 @@ body {
 
 .ButtonSearch {
     width: 120px;
+    height: 60px;
     color: gold;
     font-family: "Comfortaa", cursive;
     font-size: 1.5em;
