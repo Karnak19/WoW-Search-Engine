@@ -35,7 +35,7 @@ class ResultSearch extends React.Component {
         return (
             <>
                 <Link to="/">Back Home</Link>
-                return <CharacterComponent {...characterSearch} />
+                <CharacterComponent {...characterSearch} />
             </>
         );
     }
