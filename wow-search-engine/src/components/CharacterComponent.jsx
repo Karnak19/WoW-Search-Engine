@@ -2,25 +2,23 @@ import React from "react";
 import { Button, Container, Card } from "react-bootstrap";
 import "../App.css";
 
-function CharacterComponent({ name, race, classE, gender, item_level_total, profile_url }) {
+function CharacterComponent(props) {
+    const level = ((props || {}).gear || {}).item_level_total;
     return (
         <>
             <Container className="Cardfull">
                 <Card className="cardTop" style={{ width: "18rem" }}>
-                    <Card.Img
-                        variant="top"
-                        src="https://vignette.wikia.nocookie.net/wow/images/3/33/Paladin_%28Classe%29.png/revision/latest?cb=20150814164946&path-prefix=fr"
-                    />
+                    <Card.Img variant="top" src={props.thumbnail_url} />
                     <Card.Body className="TopCard">
-                        <Card.Title className="TopCard">{name}</Card.Title>
+                        <Card.Title className="TopCard">Name :{props.name}</Card.Title>
                         <Card.Text className="TopCard">
-                            Race : {race}
-                            Class : {classE}
-                            Gender : {gender}
-                            Level : {item_level_total}
+                            Race : {props.race} <br />
+                            Class : {props.class} <br />
+                            Gender : {props.gender} <br />
+                            Level : {level}
                         </Card.Text>
                         <Button className="ButtonFooter" variant="primary">
-                            <a href={profile_url}>Link Official page </a>
+                            <a href={props.profile_url}>Link Official page </a>
                         </Button>
                     </Card.Body>
                 </Card>

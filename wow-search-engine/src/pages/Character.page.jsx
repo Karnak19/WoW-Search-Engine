@@ -17,7 +17,7 @@ class ResultSearch extends React.Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-        Axios.get("https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=raquette&fields=raid_progression")
+        Axios.get("https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=raquette&fields=gear")
             .then(res => {
                 this.setState({ characterSearch: res.data, isLoading: false });
             })
@@ -33,10 +33,10 @@ class ResultSearch extends React.Component {
             return <Spinner animation="border" variant="danger" />;
         }
         return (
-            <div>
+            <>
                 <Link to="/">Back Home</Link>
-                <CharacterComponent characterSearch={characterSearch} />
-            </div>
+                return <CharacterComponent {...characterSearch} />
+            </>
         );
     }
 }
