@@ -25,7 +25,7 @@ class ResultSearch extends React.Component {
     }
     render() {
         // const characterNamefilter = this.props.match.params.filter;
-        const { isError, isLoading } = this.state;
+        const { characterSearch, isError, isLoading } = this.state;
         if (isError) {
             return <Redirect to="/" />;
         }
@@ -35,7 +35,7 @@ class ResultSearch extends React.Component {
         return (
             <div>
                 <Link to="/">Back Home</Link>
-                <CharacterComponent characterSearch={character => character.name} />
+                <CharacterComponent characterSearch={characterSearch} />
             </div>
         );
     }

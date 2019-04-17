@@ -25,7 +25,7 @@ class Top5Char extends React.Component {
         return (
             <>
                 <div>
-                    <Container id="cardfull">
+                    <Container className="Cardfull">
                         <Card className="cardTop" style={{ width: "18rem" }} onClick={this.handleShow}>
                             <Card.Img
                                 variant="top"

@@ -5,7 +5,7 @@ import "../App.css";
 function CharacterComponent({ name, race, classE, gender, item_level_total, profile_url }) {
     return (
         <>
-            <Container>
+            <Container className="Cardfull">
                 <Card className="cardTop" style={{ width: "18rem" }}>
                     <Card.Img
                         variant="top"
@@ -20,7 +20,7 @@ function CharacterComponent({ name, race, classE, gender, item_level_total, prof
                             Level : {item_level_total}
                         </Card.Text>
                         <Button className="ButtonFooter" variant="primary">
-                            Link Official page {profile_url}
+                            <a href={profile_url}>Link Official page </a>
                         </Button>
                     </Card.Body>
                 </Card>

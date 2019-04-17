@@ -37,6 +37,7 @@ body {
 
 .ButtonSearch {
     width: 120px;
+    height: 60px;
     color: gold;
     font-family: "Comfortaa", cursive;
     font-size: 1.5em;
@@ -75,7 +76,7 @@ body {
     border-radius: 10px;
 }
 
-#cardfull {
+.Cardfull {
     display: flex;
     justify-content: center;
 }
