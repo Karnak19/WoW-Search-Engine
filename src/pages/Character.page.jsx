@@ -3,9 +3,9 @@ import Axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
-import ButtonHome from "../components/ButtonLinkHome.jsx";
-import CharacterComponent from "../components/CharacterComponent";
-import ModalForm from "../components/ModalForm.jsx";
+import ButtonHome from "../components_home/ButtonLinkHome";
+import CharacterComponent from "../components_character/CharacterComponent";
+import ModalForm from "../components_home/ModalForm.jsx";
 
 class ResultSearch extends React.Component {
     constructor(props) {
