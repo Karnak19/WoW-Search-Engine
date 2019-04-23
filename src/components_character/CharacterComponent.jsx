@@ -10,7 +10,7 @@ function CharacterComponent(props) {
                 <Card className="cardTop" style={{ width: "18rem" }}>
                     <Card.Img variant="top" src={props.thumbnail_url} />
                     <Card.Body className="TopCard">
-                        <Card.Title className="TopCard">Name :{props.name}</Card.Title>
+                        <Card.Title className="TopCard">Name : {props.name}</Card.Title>
                         <Card.Text className="TopCard">
                             Race : {props.race} <br />
                             Class : {props.class} <br />
@@ -18,7 +18,9 @@ function CharacterComponent(props) {
                             Level : {level}
                         </Card.Text>
                         <Button className="ButtonFooter" variant="primary">
-                            <a href={props.profile_url}>Link Official page </a>
+                            <a href={props.profile_url} target="_blank" rel="noopener noreferrer">
+                                Link Official Page
+                            </a>
                         </Button>
                     </Card.Body>
                 </Card>
