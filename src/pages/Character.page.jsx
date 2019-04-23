@@ -3,7 +3,7 @@ import Axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
-import CharacterComponent from "../components/CharacterComponent";
+import CharacterComponent from "../components_character/CharacterComponent";
 
 class ResultSearch extends React.Component {
     constructor(props) {
@@ -35,7 +35,7 @@ class ResultSearch extends React.Component {
         return (
             <>
                 <Link to="/">Back Home</Link>
-                return <CharacterComponent {...characterSearch} />
+                <CharacterComponent {...characterSearch} />
             </>
         );
     }

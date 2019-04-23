@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { InputGroup, Container, Row, Col, FormControl, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { InputGroup, Container, Row, Col, FormControl } from "react-bootstrap";
 import "../App.css";
 
-// import PageCharacter from "./PageCharacter";
+import ButtonSearch from "./ButtonSearchComponent";
 
 // TODO: Ajouter l'auto completion avec la data de l'API
 
@@ -26,19 +25,6 @@ class SearchBar extends Component {
         });
     }
 
-    // submitForm(e) {
-    //     e.preventDefault();
-    //     Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=raquette&fields=raid_progression`, {
-    //         headers: { Accept: "application/json" }
-    //     })
-    //         .then(response => {
-    //             this.setState({
-    //                 ViewCharacterProfileResponse: response.data
-    //             });
-    //         })
-    //         .catch(error => console.log("error"));
-    // }
-
     render() {
         return (
             <div className="SearchEngine">
@@ -55,11 +41,7 @@ class SearchBar extends Component {
                                         aria-label="Large"
                                         aria-describedby="inputGroup-sizing-lg"
                                     />
-                                    <Link to="/resultat-search">
-                                        <Button onSubmit={this.submitForm} className="ButtonSearch">
-                                            Search
-                                        </Button>
-                                    </Link>
+                                    <ButtonSearch />
                                 </InputGroup.Append>
                             </InputGroup>
                         </Col>

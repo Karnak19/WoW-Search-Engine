@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "../App.css";
 
-import ModalForm from "../components/ModalForm.jsx";
-import SearchBar from "../components/Search-bar";
-import Top5Char from "../components/top5Char.jsx";
-import Banner from "../components/Banner.jsx";
+import ModalForm from "../components_home/ModalForm";
+import SearchBar from "../components_home/Search-bar";
+import Top5Char from "../components_home/top5Char";
+import Banner from "../components_home/Banner";
 
 class Home extends Component {
     render() {
