@@ -1,9 +1,11 @@
 import React from "react";
 import Axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
+import ButtonHome from "../components/ButtonLinkHome.jsx";
 import CharacterComponent from "../components/CharacterComponent";
+import ModalForm from "../components/ModalForm.jsx";
 
 class ResultSearch extends React.Component {
     constructor(props) {
@@ -34,8 +36,13 @@ class ResultSearch extends React.Component {
         }
         return (
             <>
-                <Link to="/">Back Home</Link>
-                return <CharacterComponent {...characterSearch} />
+                <ButtonHome />
+                <CharacterComponent {...characterSearch} />
+
+                <footer>
+                    <ModalForm />
+                    <p className="FooterCSS">Website by Sylène, Stéphane and Enzo.</p>
+                </footer>
             </>
         );
     }
