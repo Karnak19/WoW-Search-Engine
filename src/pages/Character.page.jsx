@@ -19,7 +19,7 @@ class ResultSearch extends React.Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-        Axios.get("https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=raquette&fields=gear")
+        Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=&fields=gear`)
             .then(res => {
                 this.setState({ characterSearch: res.data, isLoading: false });
             })

@@ -26,6 +26,7 @@ class SearchBar extends Component {
     }
 
     render() {
+        const researchCharacter = this.state;
         return (
             <div className="SearchEngine">
                 <Container>
@@ -41,7 +42,7 @@ class SearchBar extends Component {
                                         aria-label="Large"
                                         aria-describedby="inputGroup-sizing-lg"
                                     />
-                                    <ButtonSearch />
+                                    <ButtonSearch onChange={researchCharacter => this.setState({ researchCharacter })} />
                                 </InputGroup.Append>
                             </InputGroup>
                         </Col>
