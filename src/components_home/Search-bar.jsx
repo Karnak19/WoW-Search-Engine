@@ -4,16 +4,13 @@ import "../App.css";
 
 import ButtonSearch from "./ButtonSearchComponent";
 import InputCharacter from "./InputCharaterSearch";
-
-// TODO: Ajouter l'auto completion avec la data de l'API
+import ResultSearch from "../pages/Character.page";
 
 class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: "",
-            researchCharacter: "",
-            name: ""
+            inputValue: ""
         };
     }
 
@@ -26,11 +23,12 @@ class SearchBar extends Component {
                         <Col>
                             <InputGroup size="lg">
                                 <InputCharacter onChange={inputValue => this.setState({ inputValue })} />
-                                <ButtonSearch filter={inputValue} />
+                                <ButtonSearch nameCharacter={inputValue} />
                             </InputGroup>
                         </Col>
                     </Row>
                 </Container>
+                <ResultSearch target={this.state.inputValue} />
             </div>
         );
     }

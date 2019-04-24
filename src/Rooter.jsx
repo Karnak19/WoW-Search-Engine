@@ -17,4 +17,8 @@ class Rooter extends Component {
     }
 }
 
+// {
+//     /* <Route path="/resultat-search/:link" component={CharacterPageSearch} /> */
+// }
+
 export default Rooter;
