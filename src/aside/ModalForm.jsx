@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Modal, Container, Col } from "react-bootstrap";
 
-import FormContact from "./Form.jsx";
+import FormContact from "../aside/Form";
 
 class ModalForm extends React.Component {
     constructor(props, context) {

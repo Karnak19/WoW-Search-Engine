@@ -1,11 +1,10 @@
 import React from "react";
 import Axios from "axios";
-import { Redirect } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
 import ButtonHome from "../components_home/ButtonLinkHome";
 import CharacterComponent from "../components_character/CharacterComponent";
-import ModalForm from "../components_home/ModalForm.jsx";
+import ModalForm from "../aside/ModalForm";
 
 class ResultSearch extends React.Component {
     constructor(props) {
@@ -19,17 +18,20 @@ class ResultSearch extends React.Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-        Axios.get("https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=raquette&fields=gear")
+    }
+
+    componentDidUpdate() {
+        Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=${this.props.target}&fields=gear`)
             .then(res => {
                 this.setState({ characterSearch: res.data, isLoading: false });
             })
-            .catch(() => this.setState({ isError: true, isLoading: false }));
+            .catch({ isError: true });
     }
+
     render() {
-        // const characterNamefilter = this.props.match.params.filter;
         const { characterSearch, isError, isLoading } = this.state;
         if (isError) {
-            return <Redirect to="/" />;
+            return <p>C'est une erreur</p>;
         }
         if (isLoading) {
             return <Spinner animation="border" variant="danger" />;
