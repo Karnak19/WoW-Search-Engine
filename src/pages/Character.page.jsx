@@ -49,5 +49,4 @@ class ResultSearch extends React.Component {
         );
     }
 }
-
 export default ResultSearch;

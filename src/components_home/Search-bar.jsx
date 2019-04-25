@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { InputGroup, Container, Row, Col } from "react-bootstrap";
 import "../App.css";
 
-import ButtonSearch from "./ButtonSearchComponent";
 import InputCharacter from "./InputCharaterSearch";
 import ResultSearch from "../pages/Character.page";
 
@@ -23,12 +22,11 @@ class SearchBar extends Component {
                         <Col>
                             <InputGroup size="lg">
                                 <InputCharacter onChange={inputValue => this.setState({ inputValue })} />
-                                <ButtonSearch nameCharacter={inputValue} />
                             </InputGroup>
                         </Col>
                     </Row>
                 </Container>
-                <ResultSearch target={this.state.inputValue} />
+                <ResultSearch target={inputValue} />
             </div>
         );
     }
