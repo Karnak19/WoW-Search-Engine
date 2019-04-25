@@ -4,7 +4,7 @@ import { Spinner } from "react-bootstrap";
 
 import ButtonHome from "../components_home/ButtonLinkHome";
 import CharacterComponent from "../components_character/CharacterComponent";
-import ModalForm from "../aside/ModalForm";
+//import Layout from './Layout.jsx'
 
 class ResultSearch extends React.Component {
     constructor(props) {
@@ -37,15 +37,10 @@ class ResultSearch extends React.Component {
             return <Spinner animation="border" variant="danger" />;
         }
         return (
-            <>
+            <div>
                 <ButtonHome />
                 <CharacterComponent {...characterSearch} />
-
-                <footer>
-                    <ModalForm />
-                    <p className="FooterCSS">Website by Sylène, Stéphane and Enzo.</p>
-                </footer>
-            </>
+            </div>
         );
     }
 }
