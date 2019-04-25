@@ -1,0 +1,98 @@
+html {
+    background-color: rgb(83, 42, 8);
+}
+
+body {
+    background-color: #021035;
+}
+.App {
+    text-align: center;
+}
+
+.BannerCss {
+    margin-top: 30px;
+}
+
+.Intro {
+    color: gold;
+    text-align: justify;
+    margin-left: 150px;
+    margin-top: 100px;
+    margin-right: 150px;
+    font-family: "Comfortaa", cursive;
+}
+
+.SearchEngine {
+    margin-top: 100px;
+}
+
+#searchBar1 {
+    width: 1000px;
+    height: 60px;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.ButtonSearch {
+    width: 120px;
+    height: 60px;
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    background-color: rgb(83, 42, 8);
+    border: rgb(83, 42, 8);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.ButtonSearch:hover {
+    background-color: gold;
+    color: rgb(83, 42, 8);
+}
+
+.cardTop {
+    margin-top: 200px;
+    background-color: #350e02;
+}
+
+.TopCard {
+    background-color: #350e02;
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    text-align: center;
+}
+.ModalCharacter {
+    background-color: gold;
+    font-family: "Comfortaa", cursive;
+}
+.ButtonFooter {
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    background-color: #021035;
+    border: rgb(83, 42, 8);
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.Cardfull {
+    display: flex;
+    justify-content: center;
+}
+
+.ButtonFooter:hover {
+    background-color: gold;
+    color: #021035;
+}
+footer {
+    margin-top: 100px;
+    background-color: rgb(83, 42, 8);
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    text-align: center;
+}
+
+footer p {
+    margin-top: 10px;
+}
