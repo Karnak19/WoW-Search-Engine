@@ -1,16 +1,28 @@
 import React, { Component } from "react";
-import { InputGroup, Container, Row, Col } from "react-bootstrap";
+import { InputGroup, Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../App.css";
-
-import InputCharacter from "./InputCharaterSearch";
-import ResultSearch from "../pages/Character.page";
 
 class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: ""
+            inputValue: "",
+            searchValue: ""
         };
+        this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleClick() {
+        this.setState({
+            searchValue: this.state.inputValue
+        });
+    }
+    handleChange(event) {
+        this.setState({
+            inputValue: event.target.value
+        });
     }
 
     render() {
@@ -21,12 +33,16 @@ class SearchBar extends Component {
                     <Row>
                         <Col>
                             <InputGroup size="lg">
-                                <InputCharacter onChange={inputValue => this.setState({ inputValue })} />
+                                <input placeholder="Search here" onChange={this.handleChange} />
                             </InputGroup>
+                            <Link to={`/result-search/${inputValue}`}>
+                                <Button className="ButtonSearch" onClick={this.handleClick}>
+                                    Search
+                                </Button>
+                            </Link>
                         </Col>
                     </Row>
                 </Container>
-                <ResultSearch target={inputValue} />
             </div>
         );
     }

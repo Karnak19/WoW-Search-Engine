@@ -10,15 +10,11 @@ class Rooter extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/resultat-search" component={CharacterPageSearch} />
+                    <Route path="/result-search/:target" component={CharacterPageSearch} />
                 </Switch>
             </BrowserRouter>
         );
     }
 }
-
-// {
-//     /* <Route path="/resultat-search/:link" component={CharacterPageSearch} /> */
-// }
 
 export default Rooter;
