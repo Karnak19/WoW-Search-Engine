@@ -12,7 +12,8 @@ class ResultSearch extends React.Component {
         this.state = {
             characterSearch: [],
             isLoading: false,
-            isError: false
+            isError: false,
+            button: false
         };
     }
 

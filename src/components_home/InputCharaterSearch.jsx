@@ -1,13 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 // import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
 
 function InputCharacter({ onChange }) {
     return (
         <div>
-            <input onChange={event => onChange(event.target.value)} placeholder="Your search" />
             {/* <Link to={`/resultat-search`}> */}
-            <Button className="ButtonSearch">Search</Button>
+            <input placeholder="Your search" />
+
             {/* </Link> */}
         </div>
     );
@@ -16,3 +15,29 @@ function InputCharacter({ onChange }) {
 /* <Link to={`/resultat-search/${filter}`}> */
 
 export default InputCharacter;
+
+// class InputCharacter extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             name: ""
+//         };
+//     }
+//     searchName(event) {
+//         this.setState({
+//             name: event.target.value
+//         });
+//     }
+//     render() {
+//         return (
+//             <div>
+//                 <input onChange={event => onChange(event.target.value)} />
+//                 <Button className="ButtonSearch" onClick={}>
+//                     Search
+//                 </Button>
+//             </div>
+//         );
+//     }
+// }
+
+// export default InputCharacter;
