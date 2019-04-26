@@ -3,8 +3,10 @@ import Axios from "axios";
 import { Spinner } from "react-bootstrap";
 
 import ButtonHome from "../components_home/ButtonLinkHome";
+
 import CharacterSheet from "../components_character/CharacterSheet";
 import ModalForm from "../aside/ModalForm";
+//import Layout from './Layout.jsx'
 
 class ResultSearch extends React.Component {
     constructor(props) {
@@ -38,8 +40,9 @@ class ResultSearch extends React.Component {
             return <Spinner animation="border" variant="danger" />;
         }
         return (
-            <>
+            <div>
                 <ButtonHome />
+
                 <CharacterSheet {...characterSheet} />
 
                 <footer>
@@ -47,6 +50,10 @@ class ResultSearch extends React.Component {
                     <p className="FooterCSS">Website by Sylène, Stéphane and Enzo.</p>
                 </footer>
             </>
+
+              
+            </div>
+
         );
     }
 }
