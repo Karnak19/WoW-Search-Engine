@@ -3,7 +3,7 @@ import Axios from "axios";
 import { Spinner } from "react-bootstrap";
 
 import ButtonHome from "../components_home/ButtonLinkHome";
-import CharacterSheet from "../components_character/CharacterSheet";
+import CharacterSheet from "../components_character/CharacterComponent";
 import ModalForm from "../aside/ModalForm";
 
 class ResultSearch extends React.Component {
@@ -11,6 +11,10 @@ class ResultSearch extends React.Component {
         super(props);
         this.state = {
             characterSheet: [],
+            uldir: [],
+            bod: [],
+            crucible: [],
+            antorus: [],
             isLoading: false,
             isError: false
         };
@@ -27,10 +31,22 @@ class ResultSearch extends React.Component {
                 this.setState({ characterSheet: res.data, isLoading: false });
             })
             .catch({ isError: true });
+        Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=${target}&fields=raid_progression`)
+            .then(res => {
+                this.setState({
+                    uldir: res.data.raid_progression["uldir"],
+                    bod: res.data.raid_progression["battle-of-dazaralor"],
+                    crucible: res.data.raid_progression["crucible-of-storms"],
+                    antorus: res.data.raid_progression["antorus-the-burning-throne"],
+                    isLoading: false
+                });
+            })
+            .catch({ isError: true });
     }
 
     render() {
-        const { characterSheet, isError, isLoading } = this.state;
+        const { characterSheet, uldir, bod, crucible, antorus, isError, isLoading } = this.state;
+        let RaidsandSheet = { ...characterSheet, ...uldir, ...bod, ...crucible, ...antorus };
         if (isError) {
             return <p>C'est une erreur</p>;
         }
@@ -40,7 +56,7 @@ class ResultSearch extends React.Component {
         return (
             <>
                 <ButtonHome />
-                <CharacterSheet {...characterSheet} />
+                <CharacterSheet {...RaidsandSheet} />
 
                 <footer>
                     <ModalForm />

@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Container, Card } from "react-bootstrap";
 import "../App.css";
 
-function CharacterComponent(props) {
+function CharacterSheet(props) {
     const level = ((props || {}).gear || {}).item_level_total;
     return (
         <>
@@ -29,4 +29,4 @@ function CharacterComponent(props) {
     );
 }
 
-export default CharacterComponent;
+export default CharacterSheet;

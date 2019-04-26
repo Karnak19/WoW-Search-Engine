@@ -3,8 +3,6 @@ import { InputGroup, Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../App.css";
 
-import ResultSearch from "../pages/Character.page";
-
 class SearchBar extends Component {
     constructor(props) {
         super(props);
@@ -28,7 +26,7 @@ class SearchBar extends Component {
     }
 
     render() {
-        const { searchValue } = this.state;
+        const { inputValue } = this.state;
         return (
             <div className="SearchEngine">
                 <Container>
@@ -37,15 +35,14 @@ class SearchBar extends Component {
                             <InputGroup size="lg">
                                 <input placeholder="Search here" onChange={this.handleChange} />
                             </InputGroup>
-                            {/* <Link to={`/result-search`} target={searchValue}> */}
-                            <Button className="ButtonSearch" onClick={this.handleClick}>
-                                Search
-                            </Button>
-                            {/* </Link> */}
+                            <Link to={`/result-search/${inputValue}`}>
+                                <Button className="ButtonSearch" onClick={this.handleClick}>
+                                    Search
+                                </Button>
+                            </Link>
                         </Col>
                     </Row>
                 </Container>
-                <ResultSearch target={searchValue} />
             </div>
         );
     }
