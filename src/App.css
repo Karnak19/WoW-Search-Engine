@@ -36,6 +36,7 @@ body {
 }
 
 .ButtonSearch {
+    margin-right: 300px;
     width: 120px;
     height: 60px;
     color: gold;
@@ -46,6 +47,7 @@ body {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
+
 .ButtonSearch:hover {
     background-color: gold;
     color: rgb(83, 42, 8);
@@ -56,16 +58,27 @@ body {
     background-color: #350e02;
 }
 
+.ButtonHome {
+    margin-top: 30px;
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    background-color: rgb(83, 42, 8);
+    border: rgb(83, 42, 8);
+}
+
 .TopCard {
     background-color: #350e02;
     color: gold;
     font-family: "Comfortaa", cursive;
     text-align: center;
 }
+
 .ModalCharacter {
     background-color: gold;
     font-family: "Comfortaa", cursive;
 }
+
 .ButtonFooter {
     color: gold;
     font-family: "Comfortaa", cursive;
@@ -85,6 +98,7 @@ body {
     background-color: gold;
     color: #021035;
 }
+
 footer {
     margin-top: 100px;
     background-color: rgb(83, 42, 8);

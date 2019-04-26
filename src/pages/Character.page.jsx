@@ -49,11 +49,7 @@ class ResultSearch extends React.Component {
                     <ModalForm />
                     <p className="FooterCSS">Website by Sylène, Stéphane and Enzo.</p>
                 </footer>
-            </>
-
-              
             </div>
-
         );
     }
 }
