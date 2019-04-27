@@ -5,8 +5,9 @@ import { Spinner } from "react-bootstrap";
 import ButtonHome from "../components_home/ButtonLinkHome";
 
 import CharacterSheet from "../components_character/CharacterSheet";
-import ModalForm from "../aside/ModalForm";
-//import Layout from './Layout.jsx'
+import Raids from "../components_character/Raids";
+import Layout from "./Layout.jsx";
+import CharacterProgress from "../components_character/CharacterProgress";
 
 class ResultSearch extends React.Component {
     constructor(props) {
@@ -29,10 +30,22 @@ class ResultSearch extends React.Component {
                 this.setState({ characterSheet: res.data, isLoading: false });
             })
             .catch({ isError: true });
+        Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=${target}&fields=raid_progression`)
+            .then(res => {
+                this.setState({
+                    uldir: res.data.raid_progression["uldir"],
+                    bod: res.data.raid_progression["battle-of-dazaralor"],
+                    crucible: res.data.raid_progression["crucible-of-storms"],
+                    antorus: res.data.raid_progression["antorus-the-burning-throne"],
+                    isLoading: false
+                });
+            })
+            .catch({ isError: true });
     }
 
     render() {
-        const { characterSheet, isError, isLoading } = this.state;
+        const { characterSheet, uldir, bod, crucible, antorus, isError, isLoading } = this.state;
+        let RaidsandSheet = { ...characterSheet, ...uldir, ...bod, ...crucible, ...antorus };
         if (isError) {
             return <p>C'est une erreur</p>;
         }
@@ -40,16 +53,12 @@ class ResultSearch extends React.Component {
             return <Spinner animation="border" variant="danger" />;
         }
         return (
-            <div>
+            <Layout>
                 <ButtonHome />
-
-                <CharacterSheet {...characterSheet} />
-
-                <footer>
-                    <ModalForm />
-                    <p className="FooterCSS">Website by Sylène, Stéphane and Enzo.</p>
-                </footer>
-            </div>
+                <CharacterSheet {...RaidsandSheet} />
+                <CharacterProgress {...RaidsandSheet} />
+                {/* <Raids {...RaidsandSheet} /> */}
+            </Layout>
         );
     }
 }
