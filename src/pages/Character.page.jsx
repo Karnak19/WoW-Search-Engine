@@ -56,8 +56,8 @@ class ResultSearch extends React.Component {
             <Layout>
                 <ButtonHome />
                 <CharacterSheet {...RaidsandSheet} />
-                <CharacterProgress {...RaidsandSheet} />
-                {/* <Raids {...RaidsandSheet} /> */}
+                {/* <CharacterProgress {...RaidsandSheet} /> */}
+                <Raids {...RaidsandSheet} />
             </Layout>
         );
     }
