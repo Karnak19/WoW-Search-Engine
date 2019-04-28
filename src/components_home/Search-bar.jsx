@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { InputGroup, Container, Row, Col, Button } from "react-bootstrap";
+import { InputGroup, Container, Row, Col, Button, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../App.css";
 
@@ -31,10 +31,12 @@ class SearchBar extends Component {
             <div className="SearchEngine">
                 <Container>
                     <Row>
-                        <Col>
+                        <Col sm={9}>
                             <InputGroup size="lg">
-                                <input placeholder="Search here" onChange={this.handleChange} />
+                                <FormControl id="searchBar1" placeholder="Your Search" onChange={this.handleChange} />
                             </InputGroup>
+                        </Col>
+                        <Col sm={3}>
                             <Link to={`/result-search/${inputValue}`}>
                                 <Button className="ButtonSearch" onClick={this.handleClick}>
                                     Search
