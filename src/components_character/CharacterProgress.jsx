@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, ProgressBar } from "react-bootstrap";
 import "../App.css";
 
 function CharacterProgress(props) {
@@ -7,11 +7,14 @@ function CharacterProgress(props) {
     return (
         <>
             <Container>
-                <Card>
-                    <Card.Title />
-                    <Card.Text>
+                <Card className="cardProgress">
+                    <Card.Text className="TopCard">
                         Summary: {props.summary} <br />
-                        Total Bosses: {props.total_bosses}
+                        Total Bosses:
+                        <ProgressBar animated now={props.normal_bosses_killed} max={props.total_bosses} />
+                        {/* <progress max={props.total_bosses} value={props.normal_bosses_killed}>
+                            Normal :{props.normal_bosses_killed} / {props.total_bosses}
+                        </progress> */}
                     </Card.Text>
                 </Card>
             </Container>

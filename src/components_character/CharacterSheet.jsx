@@ -7,7 +7,7 @@ function CharacterSheet(props) {
     return (
         <>
             <Container className="Cardfull">
-                <Card className="cardTop" style={{ width: "18rem" }}>
+                <Card className="cardSheet" style={{ width: "18rem" }}>
                     <Card.Img variant="top" src={props.thumbnail_url} />
                     <Card.Body className="TopCard">
                         <Card.Title className="TopCard">Name : {props.name}</Card.Title>
