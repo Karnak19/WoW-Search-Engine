@@ -14,6 +14,10 @@ class ResultSearch extends React.Component {
         super(props);
         this.state = {
             characterSheet: [],
+            uldir: [],
+            bod: [],
+            curcible: [],
+            antorus: [],
             isLoading: false,
             isError: false
         };
@@ -37,15 +41,28 @@ class ResultSearch extends React.Component {
                     bod: res.data.raid_progression["battle-of-dazaralor"],
                     crucible: res.data.raid_progression["crucible-of-storms"],
                     antorus: res.data.raid_progression["antorus-the-burning-throne"],
+                    emerald: res.data.raid_progression["the-emerald-nightmare"],
+                    trial: res.data.raid_progression["trial-of-valor"],
                     isLoading: false
                 });
             })
             .catch({ isError: true });
     }
 
+    // axios.all([
+    //     axios.get('/api/seat/models'),
+    //     axios.get('/api/volkswagen/models')
+    //   ])
+    //   .then(axios.spread(function (seat, volkswagen) {
+    //     let vehicles = seat.data.concat(volkswagen.data);
+    //     this.setState({ vehicles: vehicles })
+    //   }))
+    //   //.then(response => this.setState({ vehicles: response.data }))
+    //   .catch(error => console.log(error));
+
     render() {
-        const { characterSheet, uldir, bod, crucible, antorus, isError, isLoading } = this.state;
-        let RaidsandSheet = { ...characterSheet, ...uldir, ...bod, ...crucible, ...antorus };
+        const { characterSheet, uldir, bod, crucible, antorus, emerald, trial, isError, isLoading } = this.state;
+        // let RaidsandSheet = { ...characterSheet, ...uldir, ...bod, ...crucible, ...antorus };
         if (isError) {
             return <p>C'est une erreur</p>;
         }
@@ -55,9 +72,15 @@ class ResultSearch extends React.Component {
         return (
             <Layout>
                 <ButtonHome />
-                <CharacterSheet {...RaidsandSheet} />
-                {/* <CharacterProgress {...RaidsandSheet} /> */}
-                <Raids {...RaidsandSheet} />
+                <CharacterSheet {...characterSheet} />
+                <h3>All Raid Progression</h3>
+                <CharacterProgress {...uldir} />
+                <CharacterProgress {...bod} />
+                <CharacterProgress {...crucible} />
+                <CharacterProgress {...antorus} />
+                <CharacterProgress {...emerald} />
+                <CharacterProgress {...trial} />
+                {/* <Raids {...RaidsandSheet} /> */}
             </Layout>
         );
     }

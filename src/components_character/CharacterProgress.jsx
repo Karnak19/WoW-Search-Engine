@@ -8,7 +8,7 @@ function CharacterProgress(props) {
         <>
             <Container>
                 <Card>
-                    <Card.Title>All Raid Progression</Card.Title>
+                    <Card.Title />
                     <Card.Text>
                         Summary: {props.summary} <br />
                         Total Bosses: {props.total_bosses}
