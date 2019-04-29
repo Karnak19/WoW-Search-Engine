@@ -18,7 +18,7 @@ function CharacterSheet(props) {
                             Level : {level}
                         </Card.Text>
                         <Button className="ButtonFooter" variant="primary">
-                            <a href={props.profile_url} target="_blank" rel="noopener noreferrer">
+                            <a style={{ textDecoration: "none" }} href={props.profile_url} target="_blank" rel="noopener noreferrer">
                                 Link Official Page
                             </a>
                         </Button>

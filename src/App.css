@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(83, 42, 8);
+    background-color: #021035;
 }
 
 body {
@@ -113,6 +113,7 @@ h5 {
     border: rgb(83, 42, 8);
     margin-top: 10px;
     border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .Cardfull {
