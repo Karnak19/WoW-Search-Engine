@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { InputGroup, Container, Row, Col, Button, FormControl } from "react-bootstrap";
+import { InputGroup, Button, FormControl, Dropdown, DropdownButton } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import "../App.css";
 
@@ -10,7 +10,10 @@ class SearchBar extends Component {
         super(props);
         this.state = {
             inputValue: "",
-            searchValue: ""
+            searchValue: "",
+            region: "",
+            realmInput: "",
+            realmSearch: ""
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -18,18 +21,21 @@ class SearchBar extends Component {
 
     handleClick() {
         this.setState({
-            searchValue: this.state.inputValue
+            realmSearch: this.tate.realmInput,
+            searchValue: this.state.inputValue,
+            region: this.state.region
         });
     }
 
     handleChange(event) {
         this.setState({
+            realmInput: event.target.value,
             inputValue: event.target.value
         });
     }
 
     render() {
-        const { inputValue } = this.state;
+        const { realmInput, inputValue, region } = this.state;
 
         // if (inputValue === "") {
         //     return <Redirect to="/" />;
@@ -37,10 +43,15 @@ class SearchBar extends Component {
         return (
             <div className="SearchPosition">
                 <InputGroup className="SearchEngine">
+                    {/* <DropdownButton as={InputGroup.Prepend} variant="outline-secondary" title="Region" id="input-group-dropdown-1">
+                        <Dropdown.Item href={({ region } = "eu")}>EU</Dropdown.Item>
+                        <Dropdown.Item href={({ region } = "us")}> US</Dropdown.Item>
+                    </DropdownButton> */}
+                    <FormControl className="SearchBarForm" placeholder="What realm?" onChange={this.handleChange} />
                     <FormControl className="SearchBarForm" placeholder="Your Search" onChange={this.handleChange} />
                 </InputGroup>
 
-                <Link to={`/result-search/${inputValue}`}>
+                <Link to={`/result-search/${realmInput}/${inputValue}`}>
                     <Button className="ButtonSearch" onClick={this.handleClick}>
                         Search
                     </Button>

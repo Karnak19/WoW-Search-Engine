@@ -23,10 +23,10 @@ class ResultSearch extends React.Component {
         this.setState({ isLoading: true });
         const { target } = this.props.match.params;
         Axios.all([
-            Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=${target}&fields=gear`, {
+            Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=${target}&name=${target}&fields=gear`, {
                 headers: { Accept: "application/json" }
             }),
-            Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=${target}&fields=raid_progression`, {
+            Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=${target}&name=${target}&fields=raid_progression`, {
                 headers: { Accept: "application/json" }
             })
         ])
