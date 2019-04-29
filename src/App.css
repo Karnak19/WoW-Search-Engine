@@ -14,12 +14,9 @@ body {
     margin-top: 30px;
 }
 
-progress[value]::-webkit-progress-value {
-    background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
-        -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)), -webkit-linear-gradient(left, #09c, #f44);
-
-    border-radius: 2px;
-    background-size: 35px 20px, 100% 100%, 100% 100%;
+.SizeBarProgress {
+    width: 60%;
+    margin: auto;
 }
 
 h3 {
@@ -74,12 +71,12 @@ h5 {
     color: rgb(83, 42, 8);
 }
 
-.cardSheet {
+.CardSheet {
     margin-top: 200px;
     background-color: #350e02;
 }
 
-.cardProgress {
+.CardProgress {
     background-color: #350e02;
 }
 

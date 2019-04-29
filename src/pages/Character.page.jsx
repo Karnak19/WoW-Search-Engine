@@ -3,8 +3,6 @@ import Axios from "axios";
 import { Spinner } from "react-bootstrap";
 import "../App.css";
 
-import ButtonHome from "../components_home/ButtonLinkHome";
-
 import CharacterSheet from "../components_character/CharacterSheet";
 // import Raids from "../components_character/Raids";
 import Layout from "./Layout.jsx";
@@ -15,10 +13,6 @@ class ResultSearch extends React.Component {
         super(props);
         this.state = {
             characterSheet: [],
-            uldir: [],
-            bod: [],
-            curcible: [],
-            antorus: [],
             isLoading: false,
             isError: false
         };
@@ -26,45 +20,36 @@ class ResultSearch extends React.Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-    }
-
-    componentDidUpdate() {
         const { target } = this.props.match.params;
-        Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=${target}&fields=gear`)
-            .then(res => {
-                this.setState({ characterSheet: res.data, isLoading: false });
+        Axios.all([
+            Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=${target}&fields=gear`, {
+                headers: { Accept: "application/json" }
+            }),
+            Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=${target}&fields=raid_progression`, {
+                headers: { Accept: "application/json" }
             })
-            .catch({ isError: true });
-        Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=hyjal&name=${target}&fields=raid_progression`)
-            .then(res => {
-                this.setState({
-                    uldir: res.data.raid_progression["uldir"],
-                    bod: res.data.raid_progression["battle-of-dazaralor"],
-                    crucible: res.data.raid_progression["crucible-of-storms"],
-                    antorus: res.data.raid_progression["antorus-the-burning-throne"],
-                    emerald: res.data.raid_progression["the-emerald-nightmare"],
-                    trial: res.data.raid_progression["trial-of-valor"],
-                    nighthold: res.data.raid_progression["the-nighthold"],
-                    sargeras: res.data.raid_progression["tomb-of-sargeras"],
-                    isLoading: false
-                });
-            })
+        ])
+            .then(
+                Axios.spread((sheet, progress) => {
+                    this.setState({
+                        characterSheet: sheet.data,
+                        antorus: progress.data.raid_progression["antorus-the-burning-throne"],
+                        bod: progress.data.raid_progression["battle-of-dazaralor"],
+                        crucible: progress.data.raid_progression["crucible-of-storms"],
+                        emerald: progress.data.raid_progression["the-emerald-nightmare"],
+                        nighthold: progress.data.raid_progression["the-nighthold"],
+                        sargeras: progress.data.raid_progression["tomb-of-sargeras"],
+                        trial: progress.data.raid_progression["trial-of-valor"],
+                        uldir: progress.data.raid_progression["uldir"],
+                        isLoading: false
+                    });
+                })
+            )
             .catch({ isError: true });
     }
-
-    // axios.all([
-    //     axios.get('/api/seat/models'),
-    //     axios.get('/api/volkswagen/models')
-    //   ])
-    //   .then(axios.spread(function (seat, volkswagen) {
-    //     let vehicles = seat.data.concat(volkswagen.data);
-    //     this.setState({ vehicles: vehicles })
-    //   }))
-    //   //.then(response => this.setState({ vehicles: response.data }))
-    //   .catch(error => console.log(error));
 
     render() {
-        const { characterSheet, uldir, bod, crucible, antorus, emerald, trial, sargeras, nighthold, isError, isLoading } = this.state;
+        const { characterSheet, uldir, antorus, bod, crucible, emerald, nighthold, sargeras, trial, isError, isLoading } = this.state;
         // let RaidsandSheet = { ...characterSheet, ...uldir, ...bod, ...crucible, ...antorus };
         if (isError) {
             return <p>C'est une erreur</p>;
@@ -74,7 +59,6 @@ class ResultSearch extends React.Component {
         }
         return (
             <Layout>
-                <ButtonHome />
                 <CharacterSheet {...characterSheet} />
                 <h3>All Raid Progression</h3>
                 <h5>Antorus the burning throne</h5>
