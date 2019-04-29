@@ -4,7 +4,6 @@ import { Spinner } from "react-bootstrap";
 import "../App.css";
 
 import CharacterSheet from "../components_character/CharacterSheet";
-// import Raids from "../components_character/Raids";
 import Layout from "./Layout.jsx";
 import CharacterProgress from "../components_character/CharacterProgress";
 
@@ -77,7 +76,6 @@ class ResultSearch extends React.Component {
                 <CharacterProgress {...trial} />
                 <h5>Uldir</h5>
                 <CharacterProgress {...uldir} />
-                {/* <Raids {...RaidsandSheet} /> */}
             </Layout>
         );
     }

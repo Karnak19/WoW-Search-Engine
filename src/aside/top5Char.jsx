@@ -26,16 +26,11 @@ class Top5Char extends React.Component {
             <>
                 <div>
                     <Container className="Cardfull">
-                        <Card className="cardSheet" style={{ width: "18rem" }} onClick={this.handleShow}>
-                            <Card.Img
-                                variant="top"
-                                src="https://vignette.wikia.nocookie.net/wow/images/3/33/Paladin_%28Classe%29.png/revision/latest?cb=20150814164946&path-prefix=fr"
-                            />
+                        <Card className="CardSheet" style={{ width: "18rem" }} onClick={this.handleShow}>
+                            <Card.Img variant="top" src="https://file-cdn.scdkey.com/product/20180222153342_scdk.jpg" />
                             <Card.Body className="TopCard">
                                 <Card.Title className="TopCard">Top Five Players</Card.Title>
-                                <Card.Text className="TopCard">
-                                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                                </Card.Text>
+                                <Card.Text className="TopCard">Here you can see a top five of the best currents players.</Card.Text>
                                 <Button className="ButtonFooter" variant="primary">
                                     Click here !
                                 </Button>
@@ -47,55 +42,82 @@ class Top5Char extends React.Component {
                     <Modal.Header className="ModalCharacter">
                         <Modal.Title>Top Five Players</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className="TopCard">
+                    <Modal.Body className="TopCard" style={{ padding: "0" }}>
                         <Container>
                             <Col>
-                                <Card className="TopCard" style={{ width: "25rem" }} onClick={this.handleShow}>
-                                    <Card.Body className="TopCard">
-                                        <Table striped bordered hover variant="dark">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Name</th>
-                                                    <th>Level</th>
-                                                    <th>Guild</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                            </tbody>
-                                        </Table>
-                                    </Card.Body>
-                                </Card>
+                                <Table striped bordered hover variant="dark">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th />
+                                            <th>Name</th>
+                                            <th>Level</th>
+                                            <th>Guild</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <img
+                                                    src="https://render-eu.worldofwarcraft.com/character/hyjal/16/166233104-avatar.jpg?alt=wow/static/images/2d/avatar/31-0.jpg"
+                                                    alt="avatar"
+                                                />
+                                            </td>
+                                            <td>Peterdaddy</td>
+                                            <td>421.13</td>
+                                            <td>Do It From Behind</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <img
+                                                    src="https://render-eu.worldofwarcraft.com/character/hyjal/15/146225423-avatar.jpg?alt=wow/static/images/2d/avatar/10-1.jpg"
+                                                    alt="avatar"
+                                                />
+                                            </td>
+                                            <td>Zhelia</td>
+                                            <td>421.06</td>
+                                            <td>Fail Better</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                <img
+                                                    src="https://render-eu.worldofwarcraft.com/character/hyjal/250/128973050-avatar.jpg?alt=wow/static/images/2d/avatar/6-0.jpg"
+                                                    alt="avatar"
+                                                />
+                                            </td>
+                                            <td>Morreb</td>
+                                            <td>421</td>
+                                            <td>Mørceaux</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>
+                                                <img
+                                                    src="https://render-eu.worldofwarcraft.com/character/hyjal/72/171652680-avatar.jpg?alt=wow/static/images/2d/avatar/10-1.jpg"
+                                                    alt="avatar"
+                                                />
+                                            </td>
+                                            <td>Zzda</td>
+                                            <td>421</td>
+                                            <td>Full Extend</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>
+                                                <img
+                                                    src="https://render-eu.worldofwarcraft.com/character/hyjal/13/130619149-avatar.jpg?alt=wow/static/images/2d/avatar/10-1.jpg"
+                                                    alt="avatar"
+                                                />
+                                            </td>
+                                            <td>Géraldîne</td>
+                                            <td>420.38</td>
+                                            <td>Attempt</td>
+                                        </tr>
+                                    </tbody>
+                                </Table>
                             </Col>
                         </Container>
                     </Modal.Body>
