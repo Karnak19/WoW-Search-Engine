@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { InputGroup, Container, Row, Col, Button, FormControl } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../App.css";
+
+// import errorPopover from "../errorPopover";
 
 class SearchBar extends Component {
     constructor(props) {
@@ -19,6 +21,7 @@ class SearchBar extends Component {
             searchValue: this.state.inputValue
         });
     }
+
     handleChange(event) {
         this.setState({
             inputValue: event.target.value
@@ -27,24 +30,21 @@ class SearchBar extends Component {
 
     render() {
         const { inputValue } = this.state;
+
+        // if (inputValue === "") {
+        //     return <Redirect to="/" />;
+        // }
         return (
-            <div className="SearchEngine">
-                <Container>
-                    <Row>
-                        <Col sm={9}>
-                            <InputGroup size="lg">
-                                <FormControl id="searchBar1" placeholder="Your Search" onChange={this.handleChange} />
-                            </InputGroup>
-                        </Col>
-                        <Col sm={3}>
-                            <Link to={`/result-search/${inputValue}`}>
-                                <Button className="ButtonSearch" onClick={this.handleClick}>
-                                    Search
-                                </Button>
-                            </Link>
-                        </Col>
-                    </Row>
-                </Container>
+            <div className="SearchPosition">
+                <InputGroup className="SearchEngine">
+                    <FormControl className="SearchBarForm" placeholder="Your Search" onChange={this.handleChange} />
+                </InputGroup>
+
+                <Link to={`/result-search/${inputValue}`}>
+                    <Button className="ButtonSearch" onClick={this.handleClick}>
+                        Search
+                    </Button>
+                </Link>
             </div>
         );
     }

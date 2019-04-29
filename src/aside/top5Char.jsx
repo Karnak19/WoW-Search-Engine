@@ -26,7 +26,7 @@ class Top5Char extends React.Component {
             <>
                 <div>
                     <Container className="Cardfull">
-                        <Card className="cardSheet" style={{ width: "18rem" }} onClick={this.handleShow}>
+                        <Card className="CardSheet" style={{ width: "18rem" }} onClick={this.handleShow}>
                             <Card.Img
                                 variant="top"
                                 src="https://vignette.wikia.nocookie.net/wow/images/3/33/Paladin_%28Classe%29.png/revision/latest?cb=20150814164946&path-prefix=fr"

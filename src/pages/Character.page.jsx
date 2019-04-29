@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import { Spinner } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 import "../App.css";
 
 import CharacterSheet from "../components_character/CharacterSheet";
@@ -52,7 +53,7 @@ class ResultSearch extends React.Component {
         const { characterSheet, uldir, antorus, bod, crucible, emerald, nighthold, sargeras, trial, isError, isLoading } = this.state;
         // let RaidsandSheet = { ...characterSheet, ...uldir, ...bod, ...crucible, ...antorus };
         if (isError) {
-            return <p>C'est une erreur</p>;
+            return <Redirect to="/" />;
         }
         if (isLoading) {
             return <Spinner animation="border" variant="danger" />;

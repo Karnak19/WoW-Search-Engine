@@ -40,21 +40,25 @@ h5 {
     font-family: "Comfortaa", cursive;
 }
 
-.SearchEngine {
-    margin-top: 100px;
+.SearchPosition {
+    display: flex;
+    margin-top: 300px;
+    justify-content: center;
 }
 
-#searchBar1 {
-    width: 1000px;
-    height: 60px;
+.SearchEngine {
+    width: 800px;
+}
+
+.SearchBarForm {
     font-family: "Comfortaa", cursive;
     font-size: 1.5em;
+    height: 60px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
 
 .ButtonSearch {
-    margin-right: 300px;
     width: 120px;
     height: 60px;
     color: gold;
