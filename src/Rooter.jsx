@@ -10,7 +10,7 @@ class Rooter extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/result-search/:target" component={CharacterPageSearch} />
+                    <Route path="/result-search/:realm/:name/:region" component={CharacterPageSearch} />
                 </Switch>
             </BrowserRouter>
         );

@@ -7,11 +7,9 @@ import wowbanner from "../assets/images/wowBanner.svg";
 class Banner extends Component {
     render() {
         return (
-            <Col>
-                <Link to="/">
-                    <Image src={wowbanner} alt="image" className="BannerCss" />
-                </Link>
-            </Col>
+            <Link to="/">
+                <Image src={wowbanner} alt="image" className="BannerCss" />
+            </Link>
         );
     }
 }

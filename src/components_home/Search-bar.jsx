@@ -1,50 +1,68 @@
 import React, { Component } from "react";
-import { InputGroup, Container, Row, Col, Button, FormControl } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { InputGroup, Button, FormControl, Dropdown, DropdownButton } from "react-bootstrap";
+import { Link, Redirect } from "react-router-dom";
 import "../App.css";
+
+// import errorPopover from "../errorPopover";
 
 class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
             inputValue: "",
-            searchValue: ""
+            searchValue: "",
+            realmInput: "",
+            realmSearch: "",
+            regionEU: "eu",
+            regionUS: "us"
         };
         this.handleClick = this.handleClick.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange1 = this.handleChange1.bind(this);
+        this.handleChange2 = this.handleChange2.bind(this);
     }
 
     handleClick() {
         this.setState({
-            searchValue: this.state.inputValue
+            realmSearch: this.state.realmInput,
+            searchValue: this.state.inputValue,
+            region: this.state.region
         });
     }
-    handleChange(event) {
+
+    handleChange1(event) {
+        this.setState({
+            realmInput: event.target.value
+        });
+    }
+
+    handleChange2(event) {
         this.setState({
             inputValue: event.target.value
         });
     }
 
     render() {
-        const { inputValue } = this.state;
+        const { realmInput, inputValue, regionEU, regionUS } = this.state;
+
+        // if (inputValue === "") {
+        //     return <Redirect to="/" />;
+        // }
         return (
-            <div className="SearchEngine">
-                <Container>
-                    <Row>
-                        <Col sm={9}>
-                            <InputGroup size="lg">
-                                <FormControl id="searchBar1" placeholder="Your Search" onChange={this.handleChange} />
-                            </InputGroup>
-                        </Col>
-                        <Col sm={3}>
-                            <Link to={`/result-search/${inputValue}`}>
-                                <Button className="ButtonSearch" onClick={this.handleClick}>
-                                    Search
-                                </Button>
-                            </Link>
-                        </Col>
-                    </Row>
-                </Container>
+            <div className="SearchPosition">
+                <InputGroup className="SearchEngine">
+                    <DropdownButton as={InputGroup.Prepend} variant="outline-secondary" title="Region" id="input-group-dropdown-1">
+                        <Dropdown.Item>{regionEU}</Dropdown.Item>
+                        <Dropdown.Item>{regionUS}</Dropdown.Item>
+                    </DropdownButton>
+                    <FormControl className="SearchBarForm" placeholder="What realm?" onChange={this.handleChange1} />
+                    <FormControl className="SearchBarForm" placeholder="Your Search" onChange={this.handleChange2} />
+                </InputGroup>
+
+                <Link to={`/result-search/${realmInput}/${inputValue}/${regionEU || regionUS}`}>
+                    <Button className="ButtonSearch" onClick={this.handleClick}>
+                        Search
+                    </Button>
+                </Link>
             </div>
         );
     }
