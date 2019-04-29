@@ -35,7 +35,7 @@ body {
     border-bottom-right-radius: 0px;
 }
 
-.ButtonSearch {
+#ButtonSearch {
     margin-right: 300px;
     width: 120px;
     height: 60px;

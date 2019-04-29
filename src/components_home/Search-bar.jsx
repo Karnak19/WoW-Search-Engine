@@ -33,7 +33,7 @@ class SearchBar extends Component {
                     <Row>
                         <Col sm={9}>
                             <InputGroup size="lg">
-                                <FormControl id="searchBar1" placeholder="Your Search" onChange={this.handleChange} />
+                                <FormControl id="searchBar1" placeholder="Your Search" onChange={this.handleChange}/>
                             </InputGroup>
                         </Col>
                         <Col sm={3}>
@@ -46,8 +46,8 @@ class SearchBar extends Component {
                     </Row>
                 </Container>
             </div>
-        );
-    }
+        )
+    };
 }
 
 export default SearchBar;

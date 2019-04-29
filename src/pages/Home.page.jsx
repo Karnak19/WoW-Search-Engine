@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "../App.css";
 
-import SearchBar from "../components_home/Search-bar";
+//import SearchBar from "../components_home/Search-bar";
+import SearchBar from "../components_home/Search-bar.2";
 import Top5Char from "../aside/top5Char";
 import Layout from './Layout.jsx'
 
