@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Card, ProgressBar } from "react-bootstrap";
 
-import { styles } from "./character.module.css";
+import styles from "./character.module.css";
 
 function CharacterProgress(props) {
     return (
