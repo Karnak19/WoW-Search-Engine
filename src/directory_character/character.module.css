@@ -1,0 +1,40 @@
+.cardSheet {
+    margin-top: 200px;
+    background-color: #350e02;
+}
+
+.cardProgress {
+    background-color: #350e02;
+}
+
+.buttonHome {
+    margin-top: 30px;
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    background-color: rgb(83, 42, 8);
+    border: rgb(83, 42, 8);
+}
+
+.topCard {
+    background-color: #350e02;
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    text-align: center;
+}
+
+.buttonCharacter {
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    background-color: #021035;
+    border: rgb(83, 42, 8);
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.sizeBarProgress {
+    width: 60%;
+    margin: auto;
+}
