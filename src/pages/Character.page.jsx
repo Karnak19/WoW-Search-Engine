@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom";
 import "../App.css";
 
 import CharacterSheet from "../components_character/CharacterSheet";
-// import Raids from "../components_character/Raids";
 import Layout from "./Layout.jsx";
 import CharacterProgress from "../components_character/CharacterProgress";
 
@@ -21,12 +20,12 @@ class ResultSearch extends React.Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-        const { target } = this.props.match.params;
+        const { realm, name, region } = this.props.match.params;
         Axios.all([
-            Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=${target}&name=${target}&fields=gear`, {
+            Axios.get(`https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=gear`, {
                 headers: { Accept: "application/json" }
             }),
-            Axios.get(`https://raider.io/api/v1/characters/profile?region=eu&realm=${target}&name=${target}&fields=raid_progression`, {
+            Axios.get(`https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=raid_progression`, {
                 headers: { Accept: "application/json" }
             })
         ])
@@ -51,7 +50,6 @@ class ResultSearch extends React.Component {
 
     render() {
         const { characterSheet, uldir, antorus, bod, crucible, emerald, nighthold, sargeras, trial, isError, isLoading } = this.state;
-        // let RaidsandSheet = { ...characterSheet, ...uldir, ...bod, ...crucible, ...antorus };
         if (isError) {
             return <Redirect to="/" />;
         }
@@ -78,7 +76,6 @@ class ResultSearch extends React.Component {
                 <CharacterProgress {...trial} />
                 <h5>Uldir</h5>
                 <CharacterProgress {...uldir} />
-                {/* <Raids {...RaidsandSheet} /> */}
             </Layout>
         );
     }
