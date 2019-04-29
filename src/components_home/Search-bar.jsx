@@ -51,8 +51,8 @@ class SearchBar extends Component {
             <div className="SearchPosition">
                 <InputGroup className="SearchEngine">
                     <DropdownButton as={InputGroup.Prepend} variant="outline-secondary" title="Region" id="input-group-dropdown-1">
-                        <Dropdown.Item href={`${regionEU}`}>EU</Dropdown.Item>
-                        <Dropdown.Item href={`${regionUS}`}>US</Dropdown.Item>
+                        <Dropdown.Item>{regionEU}</Dropdown.Item>
+                        <Dropdown.Item>{regionUS}</Dropdown.Item>
                     </DropdownButton>
                     <FormControl className="SearchBarForm" placeholder="What realm?" onChange={this.handleChange1} />
                     <FormControl className="SearchBarForm" placeholder="Your Search" onChange={this.handleChange2} />
