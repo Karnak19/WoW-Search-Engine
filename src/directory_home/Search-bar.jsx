@@ -3,7 +3,7 @@ import { InputGroup, Button, FormControl, Dropdown, DropdownButton } from "react
 import { Link, Redirect } from "react-router-dom";
 import "../App.css";
 
-// import errorPopover from "../errorPopover";
+// import errorPopover from "./errorPopover";
 
 class SearchBar extends Component {
     constructor(props) {
