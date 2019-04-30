@@ -22,7 +22,6 @@ header {
     font-family: "Comfortaa", cursive;
 }
 
-<<<<<<< HEAD
 .SearchEngine {
     margin-top: 100px;
 }
@@ -50,9 +49,6 @@ header {
 }
 
 .ButtonSearch:hover {
-=======
-.ModalCharacter {
->>>>>>> f40a18314029a9ec11a899828337a3fd4c196aa4
     background-color: gold;
     font-family: "Comfortaa", cursive;
 }

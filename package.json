@@ -12,11 +12,8 @@
     "react-particle-effect-button": "^1.0.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-<<<<<<< HEAD
-    "reactstrap": "^8.0.0"
-=======
+    "reactstrap": "^8.0.0",
     "react-scroll-up-button": "^1.6.4"
->>>>>>> f40a18314029a9ec11a899828337a3fd4c196aa4
   },
   "scripts": {
     "start": "react-scripts start",
