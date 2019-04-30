@@ -8,7 +8,7 @@ class Banner extends Component {
     render() {
         return (
             <Link to="/">
-                <Image src={wowbanner} alt="image" className="BannerCss" />
+                <Image src={wowbanner} alt="banner World of Warcraft" className="BannerCss" />
             </Link>
         );
     }

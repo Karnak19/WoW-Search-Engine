@@ -10,8 +10,8 @@ class Home extends Component {
         return (
             <Layout>
                 <h2 className="Intro d-none d-sm-block">
-                    Hello player ! Welcome on WoW-SearchEngine ! Here you can search for your favorite player or even for yourself ! Try it ! Choose
-                    your region, then enter the name and the realm of a player below and found out more about his stats and other cool stuff !
+                    Hello player, welcome on WoW-SearchEngine ! Here you can search for your favorite player or even for yourself. Try it ! Choose
+                    your region, then enter the name and the realm of a player below and found out more about his stats and others cool stuff !
                 </h2>
                 <h2 className="Intro d-block d-sm-none">Welcome !</h2>
                 <SearchBar />
