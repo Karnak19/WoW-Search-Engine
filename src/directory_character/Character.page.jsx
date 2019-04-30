@@ -13,6 +13,15 @@ class ResultSearch extends React.Component {
         super(props);
         this.state = {
             characterSheet: [],
+            uldir: [],
+            antorus: [],
+            bod: [],
+            crucible: [],
+            emerald: [],
+            nighthold: [],
+            sargeras: [],
+            trial: [],
+            mplus: [],
             isLoading: false,
             isError: false
         };
@@ -27,10 +36,14 @@ class ResultSearch extends React.Component {
             }),
             Axios.get(`https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=raid_progression`, {
                 headers: { Accept: "application/json" }
+            }),
+            Axios.get(`https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=mythic_plus_best_runs`, {
+                headers: { Accept: "application/json" }
             })
         ])
             .then(
-                Axios.spread((sheet, progress) => {
+                Axios.spread((sheet, progress, mplus) => {
+                    let mplusRuns = mplus.data["mythic_plus_best_runs"];
                     this.setState({
                         characterSheet: sheet.data,
                         antorus: progress.data.raid_progression["antorus-the-burning-throne"],
@@ -41,6 +54,7 @@ class ResultSearch extends React.Component {
                         sargeras: progress.data.raid_progression["tomb-of-sargeras"],
                         trial: progress.data.raid_progression["trial-of-valor"],
                         uldir: progress.data.raid_progression["uldir"],
+                        mplus: mplusRuns,
                         isLoading: false
                     });
                 })
@@ -76,6 +90,17 @@ class ResultSearch extends React.Component {
                 <CharacterProgress {...trial} />
                 <h5>Uldir</h5>
                 <CharacterProgress {...uldir} />
+                {/* <div>
+                    {this.state.mplus.map((dungeon, i) => {
+                        return (
+                            <ul key={i}>
+                                <li>{dungeon.dungeon.toUpperCase()}</li>
+                                <li>{dungeon.score}</li>
+                                <li>{dungeon.mythic_level}</li>
+                            </ul>
+                        );
+                    })}
+                </div> */}
             </Layout>
         );
     }
