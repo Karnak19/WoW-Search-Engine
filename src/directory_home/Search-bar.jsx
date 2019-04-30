@@ -58,7 +58,7 @@ class SearchBar extends Component {
                     <FormControl className={styles.searchBarForm} placeholder="Your Search" onChange={this.handleChange2} />
                 </InputGroup>
 
-                <Link to={`/result-search/${realmInput}/${inputValue}/${regionEU}${regionUS}`}>
+                <Link to={`/result-search/${realmInput}/${inputValue}/${regionEU || regionUS}`}>
                     <Button className={styles.buttonSearch} onClick={this.handleClick}>
                         Search
                     </Button>
