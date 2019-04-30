@@ -4,25 +4,6 @@ import "../App.css";
 
 import { InputGroup, Container, Row, Col, Button, FormControl } from "react-bootstrap";
 
-
-/*
-<h3>Trigger Button Click on Enter</h3>
-<p>Press the "Enter" key inside the input field to trigger the button.</p>
-
-<input id="myInput" value="Some text..">
-<button id="myBtn" onclick="javascript:alert('Hello World!')">Button</button>
-
-<script>
-var input = document.getElementById("myInput");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-   event.preventDefault();
-   document.getElementById("myBtn").click();
-  }
-});
-</script>
-*/
-
 class SearchBar extends Component {
     constructor(props) {
         super(props);
@@ -32,7 +13,6 @@ class SearchBar extends Component {
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        //this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     handleClick() {
@@ -45,15 +25,6 @@ class SearchBar extends Component {
             inputValue: event.target.value
         });
     }
-
-    //handleKeyPress(e) {
-    //    //e.preventDefault();
-    //   if (e.key === "Enter") {
-    //        this.handleClick();
-    //           
-    //       };
-    //}
-
       
 render() {
         const { inputValue } = this.state;
@@ -70,7 +41,6 @@ render() {
                                     onKeyPress={event => {
                                         if (event.key === "Enter") {
                                             event.preventDefault();
-                                            //this.handleClick();
                                             document.getElementById("ButtonSearch").click();
                                         }}}
                                 />
@@ -80,7 +50,7 @@ render() {
                             <Link to={`/result-search/${inputValue}`}>
                                 <Button
                                     id="ButtonSearch"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClick}                                    
                                 >
                                     Search
                                 </Button>
