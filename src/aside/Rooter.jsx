@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 
-import Home from "./pages/Home.page.jsx";
-import CharacterPageSearch from "./pages/Character.page.jsx";
+import Home from "../directory_home/Home.page";
+import CharacterPageSearch from "../directory_character/Character.page";
 
 class Rooter extends Component {
     render() {

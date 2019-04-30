@@ -25,15 +25,13 @@ class Top5Char extends React.Component {
         return (
             <>
                 <div>
-                    <Container className="Cardfull">
-                        <Card className="CardSheet" style={{ width: "18rem" }} onClick={this.handleShow}>
+                    <Container className="CardContain">
+                        <Card className="CardTop5" style={{ width: "18rem" }} onClick={this.handleShow}>
                             <Card.Img variant="top" src="https://file-cdn.scdkey.com/product/20180222153342_scdk.jpg" />
-                            <Card.Body className="TopCard">
-                                <Card.Title className="TopCard">Top Five Players</Card.Title>
-                                <Card.Text className="TopCard">Here you can see a top five of the best currents players.</Card.Text>
-                                <Button className="ButtonFooter" variant="primary">
-                                    Click here !
-                                </Button>
+                            <Card.Body className="CardContent">
+                                <Card.Title className="CardContent">Top Five Players</Card.Title>
+                                <Card.Text className="CardContent">Here you can see a top five of the best currents players.</Card.Text>
+                                <Button className="ButtonFooter">Click here !</Button>
                             </Card.Body>
                         </Card>
                     </Container>
@@ -42,7 +40,7 @@ class Top5Char extends React.Component {
                     <Modal.Header className="ModalCharacter">
                         <Modal.Title>Top Five Players</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className="TopCard" style={{ padding: "0" }}>
+                    <Modal.Body className="CardContent" style={{ padding: "0" }}>
                         <Container>
                             <Col>
                                 <Table striped bordered hover variant="dark">
@@ -122,7 +120,7 @@ class Top5Char extends React.Component {
                         </Container>
                     </Modal.Body>
                     <Modal.Footer className="ModalCharacter">
-                        <Button className="ButtonFooter" variant="secondary" onClick={this.handleClose}>
+                        <Button className="ButtonFooter" onClick={this.handleClose}>
                             Close
                         </Button>
                     </Modal.Footer>

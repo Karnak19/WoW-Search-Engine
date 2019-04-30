@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { InputGroup, Button, FormControl, Dropdown, DropdownButton } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
-import "../App.css";
 
-// import errorPopover from "../errorPopover";
+import styles from "./search.module.css";
+// import errorPopover from "./errorPopover";
 
 class SearchBar extends Component {
     constructor(props) {
@@ -48,18 +48,18 @@ class SearchBar extends Component {
         //     return <Redirect to="/" />;
         // }
         return (
-            <div className="SearchPosition">
-                <InputGroup className="SearchEngine">
+            <div className={styles.searchPosition}>
+                <InputGroup className={styles.searchEngine}>
                     <DropdownButton as={InputGroup.Prepend} variant="outline-secondary" title="Region" id="input-group-dropdown-1">
                         <Dropdown.Item>{regionEU}</Dropdown.Item>
                         <Dropdown.Item>{regionUS}</Dropdown.Item>
                     </DropdownButton>
-                    <FormControl className="SearchBarForm" placeholder="What realm?" onChange={this.handleChange1} />
-                    <FormControl className="SearchBarForm" placeholder="Your Search" onChange={this.handleChange2} />
+                    <FormControl className={styles.searchBarForm} placeholder="What realm?" onChange={this.handleChange1} />
+                    <FormControl className={styles.searchBarForm} placeholder="Your Search" onChange={this.handleChange2} />
                 </InputGroup>
 
                 <Link to={`/result-search/${realmInput}/${inputValue}/${regionEU || regionUS}`}>
-                    <Button className="ButtonSearch" onClick={this.handleClick}>
+                    <Button className={styles.buttonSearch} onClick={this.handleClick}>
                         Search
                     </Button>
                 </Link>

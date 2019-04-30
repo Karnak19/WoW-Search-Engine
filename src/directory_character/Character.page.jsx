@@ -4,9 +4,9 @@ import { Spinner } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import "../App.css";
 
-import CharacterSheet from "../components_character/CharacterSheet";
-import Layout from "./Layout.jsx";
-import CharacterProgress from "../components_character/CharacterProgress";
+import CharacterSheet from "./CharacterSheet";
+import Layout from "../aside/Layout";
+import CharacterProgress from "./CharacterProgress";
 
 class ResultSearch extends React.Component {
     constructor(props) {
