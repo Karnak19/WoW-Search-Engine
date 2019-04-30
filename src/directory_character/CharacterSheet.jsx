@@ -1,23 +1,24 @@
 import React from "react";
 import { Button, Container, Card } from "react-bootstrap";
-import "../App.css";
+
+import styles from "./character.module.css";
 
 function CharacterSheet(props) {
     const level = ((props || {}).gear || {}).item_level_total;
     return (
         <>
-            <Container className="Cardfull">
-                <Card className="CardSheet" style={{ width: "18rem" }}>
-                    <Card.Img variant="top" src={props.thumbnail_url} />
-                    <Card.Body className="TopCard">
-                        <Card.Title className="TopCard">Name : {props.name}</Card.Title>
-                        <Card.Text className="TopCard">
+            <Container className={styles.cardFull}>
+                <Card className={styles.cardSheet}>
+                    <Card.Img src={props.thumbnail_url} />
+                    <Card.Body className={styles.topCard}>
+                        <Card.Title className={styles.topCard}>Name : {props.name}</Card.Title>
+                        <Card.Text className={styles.topCard}>
                             Race : {props.race} <br />
                             Class : {props.class} <br />
                             Gender : {props.gender} <br />
                             Level : {level}
                         </Card.Text>
-                        <Button className="ButtonFooter" variant="primary">
+                        <Button className={styles.buttonCharacter}>
                             <a style={{ textDecoration: "none" }} href={props.profile_url} target="_blank" rel="noopener noreferrer">
                                 Link Official Page
                             </a>
