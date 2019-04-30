@@ -12,6 +12,8 @@ function CharacterProgress(props) {
                         Summary: {props.summary} <br />
                         Total Bosses:
                         <ProgressBar animated now={props.normal_bosses_killed} max={props.total_bosses} className={styles.sizeBarProgress} />
+                        <ProgressBar animated now={props.heroic_bosses_killed} max={props.total_bosses} className={styles.sizeBarProgress} />
+                        <ProgressBar animated now={props.mythic_bosses_killed} max={props.total_bosses} className={styles.sizeBarProgress} />
                     </Card.Body>
                 </Card>
             </Container>

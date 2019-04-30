@@ -12,8 +12,7 @@ class SearchBar extends Component {
             searchValue: "",
             realmInput: "",
             realmSearch: "",
-            regionEU: "eu",
-            regionUS: "us"
+            region: ""
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange1 = this.handleChange1.bind(this);
@@ -30,30 +29,48 @@ class SearchBar extends Component {
 
     handleChange1(event) {
         this.setState({
-            realmInput: event.target.value
+            realmInput: event.target.value.toLowerCase()
         });
     }
 
     handleChange2(event) {
         this.setState({
-            inputValue: event.target.value
+            inputValue: event.target.value.toLowerCase()
         });
     }
 
     render() {
-        const { realmInput, inputValue, regionEU, regionUS } = this.state;
+
+        const { realmInput, inputValue, region } = this.state;
         return (
             <div className={styles.searchPosition}>
                 <InputGroup className={styles.searchEngine}>
-                    <DropdownButton as={InputGroup.Prepend} variant="outline-secondary" title="Region" id="input-group-dropdown-1">
-                        <Dropdown.Item>{regionEU}</Dropdown.Item>
-                        <Dropdown.Item>{regionUS}</Dropdown.Item>
+                    <DropdownButton
+                        as={InputGroup.Prepend}
+                        variant="outline-secondary"
+                        title={region != "" ? region.toUpperCase() : "Region"}
+                        id="input-group-dropdown-1"
+                    >
+                        <Dropdown.Item
+                            onSelect={event => {
+                                this.setState({ region: "us" });
+                            }}
+                        >
+                            US
+                        </Dropdown.Item>
+                        <Dropdown.Item
+                            onSelect={event => {
+                                this.setState({ region: "eu" });
+                            }}
+                        >
+                            EU
+                        </Dropdown.Item>
                     </DropdownButton>
                     <FormControl className={styles.searchBarForm} placeholder="What realm?" onChange={this.handleChange1} />
                     <FormControl className={styles.searchBarForm} placeholder="Your Search" onChange={this.handleChange2} />
                 </InputGroup>
 
-                <Link to={`/result-search/${realmInput}/${inputValue}/${regionEU}${regionUS}`}>
+                <Link to={`/result-search/${realmInput}/${inputValue}/${region}`}>
                     <Button className={styles.buttonSearch} onClick={this.handleClick}>
                         Search
                     </Button>
