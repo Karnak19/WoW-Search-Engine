@@ -3,7 +3,6 @@ import { InputGroup, Button, FormControl, Dropdown, DropdownButton } from "react
 import { Link, Redirect } from "react-router-dom";
 
 import styles from "./search.module.css";
-// import errorPopover from "./errorPopover";
 
 class SearchBar extends Component {
     constructor(props) {
@@ -43,10 +42,6 @@ class SearchBar extends Component {
 
     render() {
         const { realmInput, inputValue, regionEU, regionUS } = this.state;
-
-        // if (inputValue === "") {
-        //     return <Redirect to="/" />;
-        // }
         return (
             <div className={styles.searchPosition}>
                 <InputGroup className={styles.searchEngine}>
