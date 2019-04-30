@@ -13,8 +13,6 @@ class SearchBar extends Component {
             searchValue: "",
             realmInput: "",
             realmSearch: "",
-            regionEU: "eu",
-            regionUS: "us",
             value: ""
         };
         this.handleClick = this.handleClick.bind(this);
@@ -32,14 +30,15 @@ class SearchBar extends Component {
 
     handleChange1(event) {
         this.setState({
-            realmInput: event.target.value
+            realmInput: event.target.value,
+            value1: event.target.value
         });
     }
 
     handleChange2(event) {
         this.setState({
             inputValue: event.target.value,
-            value: event.target.value
+            value2: event.target.value
         });
     }
 
@@ -56,12 +55,12 @@ class SearchBar extends Component {
                         <Dropdown.Item>{regionEU}</Dropdown.Item>
                         <Dropdown.Item>{regionUS}</Dropdown.Item>
                     </DropdownButton>
-                    <FormControl className={styles.searchBarForm} placeholder="What realm?" onChange={this.handleChange1} />
-                    <FormControl className={styles.searchBarForm} placeholder="Your Search" value={this.state.value} onChange={this.handleChange2} />
+                    <FormControl className={styles.searchBarForm} placeholder="What realm?" value1={this.state.value} onChange={this.handleChange1} />
+                    <FormControl className={styles.searchBarForm} placeholder="Your Search" value2={this.state.value} onChange={this.handleChange2} />
                 </InputGroup>
 
                 <Link to={`/result-search/${realmInput}/${inputValue}/${regionEU || regionUS}`}>
-                    <Button className={styles.buttonSearch} disabled={!this.state.value} onClick={this.handleClick}>
+                    <Button className={styles.buttonSearch} disabled={!this.state.value1 || !this.state.value2} onClick={this.handleClick}>
                         Search
                     </Button>
                 </Link>
