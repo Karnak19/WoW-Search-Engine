@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 
 import Banner from "./Banner.jsx";
 import ModalForm from "./ModalForm.jsx";

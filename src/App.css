@@ -2,6 +2,13 @@
     text-align: center;
 }
 
+header {
+    background-image: url("./assets/images/bgHeader.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
 .BannerCss {
     margin-top: 30px;
 }
