@@ -12,8 +12,6 @@ class SearchBar extends Component {
             searchValue: "",
             realmInput: "",
             realmSearch: "",
-            regionEU: "eu",
-            regionUS: "us",
             value: "",
             region: ""
         };
