@@ -47,6 +47,7 @@ class SearchBar extends Component {
             <div className={styles.searchPosition}>
                 <InputGroup className={styles.searchEngine}>
                     <DropdownButton
+                        className={styles.buttonRegion}
                         as={InputGroup.Prepend}
                         variant="outline-secondary"
                         title={region !== "" ? region.toUpperCase() : "Region"}
