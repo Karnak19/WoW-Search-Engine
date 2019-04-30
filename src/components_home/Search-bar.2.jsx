@@ -65,13 +65,3 @@ render() {
 
 
 export default SearchBar;
-
-/*    <InputGroup>
-                                    <FormControl
-                                        id="searchBar1"
-                                        placeholder="Your Search"
-                                        onChange={this.handleChange}
-                                        onKeyPress={this.handleKeyPress}
-                                    />
-                                </InputGroup>
-                            */

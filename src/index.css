@@ -1,3 +1,19 @@
-h2 {
-    font-size: 1.7em;
+html {
+    background-color: #021035;
+}
+
+body {
+    background-color: #021035;
+}
+
+h3 {
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    margin-top: 50px;
+}
+
+h5 {
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    margin-top: 20px;
 }

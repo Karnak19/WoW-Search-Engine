@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import Rooter from "./Rooter";
+import Rooter from "./aside/Rooter";
 
 class App extends Component {
     render() {

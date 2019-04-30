@@ -1,12 +1,12 @@
-html {
-    background-color: rgb(83, 42, 8);
-}
-
-body {
-    background-color: #021035;
-}
 .App {
     text-align: center;
+}
+
+header {
+    background-image: url("./assets/images/bgHeader.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
 }
 
 .BannerCss {
@@ -22,6 +22,7 @@ body {
     font-family: "Comfortaa", cursive;
 }
 
+<<<<<<< HEAD
 .SearchEngine {
     margin-top: 100px;
 }
@@ -49,34 +50,28 @@ body {
 }
 
 .ButtonSearch:hover {
+=======
+.ModalCharacter {
+>>>>>>> f40a18314029a9ec11a899828337a3fd4c196aa4
     background-color: gold;
-    color: rgb(83, 42, 8);
-}
-
-.cardTop {
-    margin-top: 200px;
-    background-color: #350e02;
-}
-
-.ButtonHome {
-    margin-top: 30px;
-    color: gold;
     font-family: "Comfortaa", cursive;
-    font-size: 1.5em;
-    background-color: rgb(83, 42, 8);
-    border: rgb(83, 42, 8);
 }
 
-.TopCard {
+.CardContain {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.CardTop5 {
     background-color: #350e02;
     color: gold;
     font-family: "Comfortaa", cursive;
     text-align: center;
 }
 
-.ModalCharacter {
-    background-color: gold;
-    font-family: "Comfortaa", cursive;
+.CardContent {
+    background-color: #350e02;
 }
 
 .ButtonFooter {
@@ -87,11 +82,7 @@ body {
     border: rgb(83, 42, 8);
     margin-top: 10px;
     border-radius: 10px;
-}
-
-.Cardfull {
-    display: flex;
-    justify-content: center;
+    margin-bottom: 15px;
 }
 
 .ButtonFooter:hover {
