@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { InputGroup, Button, FormControl, Dropdown, DropdownButton } from "react-bootstrap";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import styles from "./search.module.css";
 
@@ -12,6 +12,9 @@ class SearchBar extends Component {
             searchValue: "",
             realmInput: "",
             realmSearch: "",
+            regionEU: "eu",
+            regionUS: "us",
+            value: ""
             region: ""
         };
         this.handleClick = this.handleClick.bind(this);
@@ -35,6 +38,8 @@ class SearchBar extends Component {
 
     handleChange2(event) {
         this.setState({
+
+            value: event.target.value,
             inputValue: event.target.value.toLowerCase()
         });
     }
@@ -67,9 +72,8 @@ class SearchBar extends Component {
                         </Dropdown.Item>
                     </DropdownButton>
                     <FormControl className={styles.searchBarForm} placeholder="What realm?" onChange={this.handleChange1} />
-                    <FormControl className={styles.searchBarForm} placeholder="Your Search" onChange={this.handleChange2} />
+                    <FormControl className={styles.searchBarForm} placeholder="Your Search" value={this.state.value} onChange={this.handleChange2} />
                 </InputGroup>
-
                 <Link to={`/result-search/${realmInput}/${inputValue}/${region}`}>
                     <Button className={styles.buttonSearch} onClick={this.handleClick}>
                         Search
