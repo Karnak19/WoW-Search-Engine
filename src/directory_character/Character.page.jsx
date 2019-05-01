@@ -1,12 +1,14 @@
 import React from "react";
 import Axios from "axios";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Container, Row, Col } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import "../App.css";
 
+import styles from "./displayCharacter.module.css";
 import CharacterSheet from "./CharacterSheet";
 import Layout from "../aside/Layout";
 import CharacterProgress from "./CharacterProgress";
+import CharacterDungeon from "./CharacterDungeon";
 
 class ResultSearch extends React.Component {
     constructor(props) {
@@ -72,35 +74,46 @@ class ResultSearch extends React.Component {
         }
         return (
             <Layout>
-                <CharacterSheet {...characterSheet} />
-                <h3>All Raid Progression</h3>
-                <h5>Antorus the burning throne</h5>
-                <CharacterProgress {...antorus} />
-                <h5>Battle of dazaralor</h5>
-                <CharacterProgress {...bod} />
-                <h5>Crucible of storms</h5>
-                <CharacterProgress {...crucible} />
-                <h5>The emerald nightmare</h5>
-                <CharacterProgress {...emerald} />
-                <h5>The nighthold</h5>
-                <CharacterProgress {...nighthold} />
-                <h5>Tomb of Sargeras</h5>
-                <CharacterProgress {...sargeras} />
-                <h5>Trial of valor</h5>
-                <CharacterProgress {...trial} />
-                <h5>Uldir</h5>
-                <CharacterProgress {...uldir} />
-                {/* <div>
-                    {this.state.mplus.map((dungeon, i) => {
-                        return (
-                            <ul key={i}>
-                                <li>{dungeon.dungeon.toUpperCase()}</li>
-                                <li>{dungeon.score}</li>
-                                <li>{dungeon.mythic_level}</li>
-                            </ul>
-                        );
-                    })}
-                </div> */}
+                <Container fluid>
+                    <Col className={styles.positionTitle}>
+                        <h3>All Raid Progression</h3>
+                    </Col>
+                    <Row className={styles.positionContainer}>
+                        <Col sm={2} md={2} className={styles.positionCardCharacter}>
+                            <CharacterSheet {...characterSheet} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="Antorus the Burning Throne" {...antorus} />
+                            <CharacterProgress title="Crucible of Storms" {...crucible} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="Battle of Dazaralor" {...bod} />
+                            <CharacterProgress title="The Nighthold" {...nighthold} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="Uldir" {...uldir} />
+                            <CharacterProgress title="Tomb of Sargeras" {...sargeras} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="The Emerald Nightmare" {...emerald} />
+                            <CharacterProgress title="Trial of Valor" {...trial} />
+                        </Col>
+                    </Row>
+
+                    <Col className={styles.positionTitle}>
+                        <h3>Top three Dungeons</h3>
+                    </Col>
+                    <Row>
+                        <Col sm={3} md={3} />
+                        {this.state.mplus.map((dungeon, i) => {
+                            return (
+                                <Col sm={3} md={3}>
+                                    <CharacterDungeon key={i} {...dungeon} />
+                                </Col>
+                            );
+                        })}
+                    </Row>
+                </Container>
             </Layout>
         );
     }

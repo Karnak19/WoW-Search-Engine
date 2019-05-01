@@ -7,8 +7,8 @@ function CharacterSheet(props) {
     const level = ((props || {}).gear || {}).item_level_total;
     return (
         <>
-            <Container className={styles.cardFull}>
-                <Card className={styles.cardSheet}>
+            <Container>
+                <Card>
                     <Card.Img src={props.thumbnail_url} />
                     <Card.Body className={styles.topCard}>
                         <Card.Title className={styles.topCard}>Name : {props.name}</Card.Title>
@@ -20,7 +20,7 @@ function CharacterSheet(props) {
                         </Card.Text>
                         <Button className={styles.buttonCharacter}>
                             <a style={{ textDecoration: "none" }} href={props.profile_url} target="_blank" rel="noopener noreferrer">
-                                Link Official Page
+                                Page Official
                             </a>
                         </Button>
                     </Card.Body>
