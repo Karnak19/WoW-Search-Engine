@@ -7,8 +7,8 @@ function CharacterSheet(props) {
     const level = ((props || {}).gear || {}).item_level_total;
     return (
         <>
-            <Container className={styles.cardFull}>
-                <Card className={styles.cardSheet}>
+            <Container>
+                <Card>
                     <Card.Img src={props.thumbnail_url} />
                     <Card.Body className={styles.topCard}>
                         <Card.Title className={styles.topCard}>Name : {props.name}</Card.Title>

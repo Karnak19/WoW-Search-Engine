@@ -1,0 +1,9 @@
+.positionTitle {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.positionContainer {
+    margin-top: 0;
+}

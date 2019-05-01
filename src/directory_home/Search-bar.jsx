@@ -31,7 +31,6 @@ class SearchBar extends Component {
     handleChange1(event) {
         this.setState({
             value1: event.target.value,
-
             realmInput: event.target.value.toLowerCase()
         });
     }

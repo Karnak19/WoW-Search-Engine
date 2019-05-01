@@ -1,9 +1,3 @@
-.cardFull {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-}
-
 .cardSheet {
     background-color: #350e02;
 }
@@ -28,6 +22,21 @@
     text-align: center;
 }
 
+.positionCard {
+    margin-top: 30px;
+}
+
+.titleCard {
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    background-color: #021035;
+    margin-bottom: 0;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .buttonCharacter {
     color: gold;
     font-family: "Comfortaa", cursive;
@@ -42,4 +51,14 @@
 .sizeBarProgress {
     width: 60%;
     margin: auto;
+}
+
+.sizeTab {
+    margin: auto;
+    padding: 20px;
+    width: 500px;
+}
+
+.styleTab {
+    background-color: rgb(83, 42, 8);
 }
