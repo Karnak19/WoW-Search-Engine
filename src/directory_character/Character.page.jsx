@@ -8,89 +8,113 @@ import CharacterSheet from "./CharacterSheet";
 import Layout from "../aside/Layout";
 import CharacterProgress from "./CharacterProgress";
 
+
 class ResultSearch extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            characterSheet: [],
-            uldir: [],
-            antorus: [],
-            bod: [],
-            crucible: [],
-            emerald: [],
-            nighthold: [],
-            sargeras: [],
-            trial: [],
-            mplus: [],
-            isLoading: false,
-            isError: false
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      characterSheet: [],
+      uldir: [],
+      antorus: [],
+      bod: [],
+      crucible: [],
+      emerald: [],
+      nighthold: [],
+      sargeras: [],
+      trial: [],
+      mplus: [],
+      isLoading: false,
+      isError: false
+    };
+  }
 
-    componentDidMount() {
-        this.setState({ isLoading: true });
-        const { realm, name, region } = this.props.match.params;
-        Axios.all([
-            Axios.get(`https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=gear`, {
-                headers: { Accept: "application/json" }
-            }),
-            Axios.get(`https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=raid_progression`, {
-                headers: { Accept: "application/json" }
-            }),
-            Axios.get(`https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=mythic_plus_best_runs`, {
-                headers: { Accept: "application/json" }
-            })
-        ])
-            .then(
-                Axios.spread((sheet, progress, mplus) => {
-                    let mplusRuns = mplus.data["mythic_plus_best_runs"];
-                    this.setState({
-                        characterSheet: sheet.data,
-                        antorus: progress.data.raid_progression["antorus-the-burning-throne"],
-                        bod: progress.data.raid_progression["battle-of-dazaralor"],
-                        crucible: progress.data.raid_progression["crucible-of-storms"],
-                        emerald: progress.data.raid_progression["the-emerald-nightmare"],
-                        nighthold: progress.data.raid_progression["the-nighthold"],
-                        sargeras: progress.data.raid_progression["tomb-of-sargeras"],
-                        trial: progress.data.raid_progression["trial-of-valor"],
-                        uldir: progress.data.raid_progression["uldir"],
-                        mplus: mplusRuns,
-                        isLoading: false
-                    });
-                })
-            )
-            .catch({ isError: true });
-    }
+  componentDidMount() {
+    this.setState({ isLoading: true });
+    const { realm, name, region } = this.props.match.params;
+    Axios.all([
+      Axios.get(
+        `https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=gear`,
+        {
+          headers: { Accept: "application/json" }
+        }
+      ),
+      Axios.get(
+        `https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=raid_progression`,
+        {
+          headers: { Accept: "application/json" }
+        }
+      ),
+      Axios.get(
+        `https://raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=mythic_plus_best_runs`,
+        {
+          headers: { Accept: "application/json" }
+        }
+      )
+    ])
+      .then(([sheet, progress, mplus]) => {
+        let mplusRuns = mplus.data["mythic_plus_best_runs"];
+        this.setState({
+          characterSheet: sheet.data,
+          antorus: progress.data.raid_progression["antorus-the-burning-throne"],
+          bod: progress.data.raid_progression["battle-of-dazaralor"],
+          crucible: progress.data.raid_progression["crucible-of-storms"],
+          emerald: progress.data.raid_progression["the-emerald-nightmare"],
+          nighthold: progress.data.raid_progression["the-nighthold"],
+          sargeras: progress.data.raid_progression["tomb-of-sargeras"],
+          trial: progress.data.raid_progression["trial-of-valor"],
+          uldir: progress.data.raid_progression["uldir"],
+          mplus: mplusRuns,
+          isLoading: false
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          isError: true
+        });
+      });
+  }
 
-    render() {
-        const { characterSheet, uldir, antorus, bod, crucible, emerald, nighthold, sargeras, trial, isError, isLoading } = this.state;
-        if (isError) {
-            return <Redirect to="/" />;
-        }
-        if (isLoading) {
-            return <Spinner animation="border" variant="danger" />;
-        }
-        return (
-            <Layout>
-                <CharacterSheet {...characterSheet} />
-                <h3>All Raid Progression</h3>
-                <h5>Antorus the burning throne</h5>
-                <CharacterProgress {...antorus} />
-                <h5>Battle of dazaralor</h5>
-                <CharacterProgress {...bod} />
-                <h5>Crucible of storms</h5>
-                <CharacterProgress {...crucible} />
-                <h5>The emerald nightmare</h5>
-                <CharacterProgress {...emerald} />
-                <h5>The nighthold</h5>
-                <CharacterProgress {...nighthold} />
-                <h5>Tomb of Sargeras</h5>
-                <CharacterProgress {...sargeras} />
-                <h5>Trial of valor</h5>
-                <CharacterProgress {...trial} />
-                <h5>Uldir</h5>
-                <CharacterProgress {...uldir} />
-                {/* <div>
+  render() {
+    const {
+      characterSheet,
+      uldir,
+      antorus,
+      bod,
+      crucible,
+      emerald,
+      nighthold,
+      sargeras,
+      trial,
+      isError,
+      isLoading
+    } = this.state;
+    if (isError) {
+      return <Redirect to="/error" />;
+    }
+    if (isLoading) {
+      return <Spinner animation="border" variant="danger" />;
+    }
+    return (
+      <Layout>
+        <CharacterSheet {...characterSheet} />
+        <h3>All Raid Progression</h3>
+        <h5>Antorus the burning throne</h5>
+        <CharacterProgress {...antorus} />
+        <h5>Battle of dazaralor</h5>
+        <CharacterProgress {...bod} />
+        <h5>Crucible of storms</h5>
+        <CharacterProgress {...crucible} />
+        <h5>The emerald nightmare</h5>
+        <CharacterProgress {...emerald} />
+        <h5>The nighthold</h5>
+        <CharacterProgress {...nighthold} />
+        <h5>Tomb of Sargeras</h5>
+        <CharacterProgress {...sargeras} />
+        <h5>Trial of valor</h5>
+        <CharacterProgress {...trial} />
+        <h5>Uldir</h5>
+        <CharacterProgress {...uldir} />
+        {/* <div>
                     {this.state.mplus.map((dungeon, i) => {
                         return (
                             <ul key={i}>
@@ -101,8 +125,8 @@ class ResultSearch extends React.Component {
                         );
                     })}
                 </div> */}
-            </Layout>
-        );
-    }
+      </Layout>
+    );
+  }
 }
 export default ResultSearch;

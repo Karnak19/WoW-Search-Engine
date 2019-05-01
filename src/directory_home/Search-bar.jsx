@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { InputGroup, Button, FormControl, Dropdown, DropdownButton } from "react-bootstrap";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import styles from "./search.module.css";
 
@@ -48,7 +48,7 @@ class SearchBar extends Component {
                     <DropdownButton
                         as={InputGroup.Prepend}
                         variant="outline-secondary"
-                        title={region != "" ? region.toUpperCase() : "Region"}
+                        title={region !== "" ? region.toUpperCase() : "Region"}
                         id="input-group-dropdown-1"
                     >
                         <Dropdown.Item
