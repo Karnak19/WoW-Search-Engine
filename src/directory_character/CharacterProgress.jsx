@@ -10,7 +10,7 @@ function CharacterProgress(props) {
                 <Card className={styles.positionCard}>
                     <Card.Title className={styles.titleCard}>{props.title}</Card.Title>
                     <Card.Body className={styles.topCard}>
-                        Difficulties Bosses Killed
+                        Difficulties Bosses
                         <br />
                         Normal
                         <ProgressBar animated now={props.normal_bosses_killed} max={props.total_bosses} className={styles.sizeBarProgress} />

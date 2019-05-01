@@ -78,31 +78,41 @@ class ResultSearch extends React.Component {
                     <Col className={styles.positionTitle}>
                         <h3>All Raid Progression</h3>
                     </Col>
-                    <Row>
-                        <Col sm={3} md={3} className={styles.positionContainer}>
+                    <Row className={styles.positionContainer}>
+                        <Col sm={2} md={2} className={styles.positionCardCharacter}>
                             <CharacterSheet {...characterSheet} />
                         </Col>
-
-                        <Col sm={3} md={3}>
+                        <Col sm={2} md={2}>
                             <CharacterProgress title="Antorus the Burning Throne" {...antorus} />
-                            <CharacterProgress title="Battle of Dazaralor" {...bod} />
-                        </Col>
-                        <Col sm={3} md={3}>
                             <CharacterProgress title="Crucible of Storms" {...crucible} />
-                            <CharacterProgress title="The Emerald Nightmare" {...emerald} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="Battle of Dazaralor" {...bod} />
                             <CharacterProgress title="The Nighthold" {...nighthold} />
                         </Col>
-                        <Col sm={3} md={3}>
-                            <CharacterProgress title="Tomb of Sargeras" {...sargeras} />
-                            <CharacterProgress title="Trial of Valor" {...trial} />
+                        <Col sm={2} md={2}>
                             <CharacterProgress title="Uldir" {...uldir} />
+                            <CharacterProgress title="Tomb of Sargeras" {...sargeras} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="The Emerald Nightmare" {...emerald} />
+                            <CharacterProgress title="Trial of Valor" {...trial} />
                         </Col>
                     </Row>
-                    <Col className={styles.positionContainer} sm={3}>
-                        {this.state.mplus.map((dungeon, i) => {
-                            return <CharacterDungeon key={i} {...dungeon} />;
-                        })}
+
+                    <Col className={styles.positionTitle}>
+                        <h3>Top three Dungeons</h3>
                     </Col>
+                    <Row>
+                        <Col sm={3} md={3} />
+                        {this.state.mplus.map((dungeon, i) => {
+                            return (
+                                <Col sm={3} md={3}>
+                                    <CharacterDungeon key={i} {...dungeon} />
+                                </Col>
+                            );
+                        })}
+                    </Row>
                 </Container>
             </Layout>
         );

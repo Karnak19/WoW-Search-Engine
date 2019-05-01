@@ -4,6 +4,11 @@
     margin: 0;
 }
 
-.positionContainer {
+.positionCardCharacter {
     margin-top: 0;
+}
+
+.positionContainer {
+    display: flex;
+    justify-content: space-around;
 }
