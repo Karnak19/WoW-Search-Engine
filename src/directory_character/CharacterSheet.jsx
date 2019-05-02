@@ -20,7 +20,7 @@ function CharacterSheet(props) {
                         </Card.Text>
                         <Button className={styles.buttonCharacter}>
                             <a style={{ textDecoration: "none" }} href={props.profile_url} target="_blank" rel="noopener noreferrer">
-                                Page Official
+                                Official Page
                             </a>
                         </Button>
                     </Card.Body>

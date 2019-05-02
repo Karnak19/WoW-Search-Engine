@@ -70,7 +70,7 @@ class ResultSearch extends React.Component {
             return <Redirect to="/" />;
         }
         if (isLoading) {
-            return <Spinner animation="border" variant="danger" />;
+            return <Spinner className="spinner" animation="grow" variant="warning" />;
         }
         return (
             <Layout>
