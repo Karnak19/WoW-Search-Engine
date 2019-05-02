@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Modal, Container, Col, Card, Table } from "react-bootstrap";
+import "../App.css";
 
 class Top5Char extends React.Component {
     constructor(props, context) {
