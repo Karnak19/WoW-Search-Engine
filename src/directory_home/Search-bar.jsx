@@ -31,7 +31,6 @@ class SearchBar extends Component {
     handleChange1(event) {
         this.setState({
             value1: event.target.value,
-
             realmInput: event.target.value.toLowerCase()
         });
     }
@@ -49,6 +48,7 @@ class SearchBar extends Component {
             <div className={styles.searchPosition}>
                 <InputGroup className={styles.searchEngine}>
                     <DropdownButton
+                        className={styles.buttonRegion}
                         as={InputGroup.Prepend}
                         variant="outline-secondary"
                         title={region !== "" ? region.toUpperCase() : "Region"}

@@ -1,0 +1,14 @@
+.positionTitle {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.positionCardCharacter {
+    margin-top: 0;
+}
+
+.positionContainer {
+    display: flex;
+    justify-content: space-around;
+}
