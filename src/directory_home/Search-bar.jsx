@@ -31,6 +31,7 @@ class SearchBar extends Component {
     handleChange1(event) {
         this.setState({
             value1: event.target.value,
+
             realmInput: event.target.value.toLowerCase()
         });
     }
@@ -48,7 +49,6 @@ class SearchBar extends Component {
             <div className={styles.searchPosition}>
                 <InputGroup className={styles.searchEngine}>
                     <DropdownButton
-                        className={styles.buttonRegion}
                         as={InputGroup.Prepend}
                         variant="outline-secondary"
                         title={region !== "" ? region.toUpperCase() : "Region"}
@@ -69,25 +69,26 @@ class SearchBar extends Component {
                             EU
                         </Dropdown.Item>
                     </DropdownButton>
+                    <FormControl className={styles.searchBarForm} placeholder="What realm?" value1={this.state.value} onChange={this.handleChange1} />
                     <FormControl
                         className={styles.searchBarForm}
-                        placeholder="What realm?"
-                        value1={this.state.value}
-                        onChange={this.handleChange1}
+                        placeholder="Your Search"
+                        value2={this.state.value}
+                        onChange={this.handleChange2}
                         onKeyPress={event => {
                             if (event.key === "Enter") {
                                 event.preventDefault();
-                                document.getElementById("buttonSearch").click();
+                                document.getElementById("buttonEnter").click();
                             }
                         }}
                     />
-                    <FormControl className={styles.searchBarForm} placeholder="Your Search" value2={this.state.value} onChange={this.handleChange2} />
                 </InputGroup>
 
                 <Link to={`/result-search/${realmInput}/${inputValue}/${region}`}>
                     <Button
                         className={styles.buttonSearch}
-                        disabled={!this.state.value1 || !this.state.value2 || !this.state.region}
+                        id="buttonEnter"
+                        disabled={!this.state.value1 || !this.state.value2}
                         onClick={this.handleClick}
                     >
                         Search
