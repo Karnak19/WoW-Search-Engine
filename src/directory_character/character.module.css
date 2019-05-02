@@ -1,0 +1,62 @@
+.cardSheet {
+    background-color: #350e02;
+}
+
+.cardProgress {
+    background-color: #350e02;
+}
+
+.topCard {
+    background-color: #350e02;
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    text-align: center;
+}
+
+.positionCard {
+    margin-top: 30px;
+}
+
+.titleCard {
+    color: gold;
+    font-size: 1.1em;
+    font-family: "Comfortaa", cursive;
+    background-color: #021035;
+    margin-bottom: 0;
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttonCharacter {
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.2em;
+    background-color: #021035;
+    border: rgb(83, 42, 8);
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.sizeBarProgress {
+    width: 100%;
+    margin: auto;
+}
+
+.sizeTab {
+    margin: auto;
+    padding: 20px;
+    width: 500px;
+}
+
+.styleTab {
+    background-color: rgb(83, 42, 8);
+}
+
+.cardDungeon {
+    margin-top: 30px;
+
+    width: 100%;
+}

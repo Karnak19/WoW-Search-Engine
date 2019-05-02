@@ -1,0 +1,48 @@
+.searchPosition {
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.searchEngine {
+    width: 800px;
+}
+
+.buttonRegion {
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+}
+
+.searchBarForm {
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    height: 60px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.buttonSearch {
+    width: 120px;
+    height: 60px;
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    background-color: rgb(83, 42, 8);
+    border: rgb(83, 42, 8);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.buttonSearch:hover {
+    background-color: gold;
+    color: rgb(83, 42, 8);
+}
+
+.buttonSearch:disabled {
+    background-color: rgb(83, 42, 8);
+    color: gold;
+    border: rgb(83, 42, 8);
+    opacity: 1;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}

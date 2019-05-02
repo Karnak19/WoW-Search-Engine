@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 
-import Home from "./pages/Home.page.jsx";
-import CharacterPageSearch from "./pages/Character.page.jsx";
+import Home from "../directory_home/Home.page";
+import CharacterPageSearch from "../directory_character/Character.page";
+import ErrorPage from "../directory_home/ErrorPage";
 
 class Rooter extends Component {
     render() {
@@ -10,15 +11,12 @@ class Rooter extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/resultat-search" component={CharacterPageSearch} />
+                    <Route path="/result-search/:realm/:name/:region" component={CharacterPageSearch} />
+                    <Route path="/error" component={ErrorPage} />
                 </Switch>
             </BrowserRouter>
         );
     }
 }
-
-// {
-//     /* <Route path="/resultat-search/:link" component={CharacterPageSearch} /> */
-// }
 
 export default Rooter;

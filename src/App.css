@@ -1,12 +1,12 @@
-html {
-    background-color: rgb(83, 42, 8);
-}
-
-body {
-    background-color: #021035;
-}
 .App {
     text-align: center;
+}
+
+header {
+    background-image: url("./assets/images/bgHeader.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
 }
 
 .BannerCss {
@@ -35,7 +35,8 @@ body {
     border-bottom-right-radius: 0px;
 }
 
-.ButtonSearch {
+#ButtonSearch {
+    margin-right: 300px;
     width: 120px;
     height: 60px;
     color: gold;
@@ -46,26 +47,29 @@ body {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
+
 .ButtonSearch:hover {
     background-color: gold;
-    color: rgb(83, 42, 8);
+    font-family: "Comfortaa", cursive;
 }
 
-.cardTop {
-    margin-top: 200px;
-    background-color: #350e02;
+.CardContain {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
 }
 
-.TopCard {
+.CardTop5 {
     background-color: #350e02;
     color: gold;
     font-family: "Comfortaa", cursive;
     text-align: center;
 }
-.ModalCharacter {
-    background-color: gold;
-    font-family: "Comfortaa", cursive;
+
+.CardContent {
+    background-color: #350e02;
 }
+
 .ButtonFooter {
     color: gold;
     font-family: "Comfortaa", cursive;
@@ -74,17 +78,14 @@ body {
     border: rgb(83, 42, 8);
     margin-top: 10px;
     border-radius: 10px;
-}
-
-.Cardfull {
-    display: flex;
-    justify-content: center;
+    margin-bottom: 15px;
 }
 
 .ButtonFooter:hover {
     background-color: gold;
     color: #021035;
 }
+
 footer {
     margin-top: 100px;
     background-color: rgb(83, 42, 8);
@@ -95,4 +96,8 @@ footer {
 
 footer p {
     margin-top: 10px;
+}
+
+.spinner {
+    margin-top: 450px;
 }
