@@ -22,7 +22,33 @@ header {
     font-family: "Comfortaa", cursive;
 }
 
-.ModalCharacter {
+.SearchEngine {
+    margin-top: 100px;
+}
+
+#searchBar1 {
+    width: 1000px;
+    height: 60px;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#ButtonSearch {
+    margin-right: 300px;
+    width: 120px;
+    height: 60px;
+    color: gold;
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+    background-color: rgb(83, 42, 8);
+    border: rgb(83, 42, 8);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.ButtonSearch:hover {
     background-color: gold;
     font-family: "Comfortaa", cursive;
 }
