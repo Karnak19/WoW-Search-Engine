@@ -66,6 +66,7 @@ class ResultSearch extends React.Component {
 
     render() {
         const { characterSheet, uldir, antorus, bod, crucible, emerald, nighthold, sargeras, trial, isError, isLoading } = this.state;
+        const { realm, name, region } = this.props.match.params;
         if (isError) {
             return <Redirect to="/" />;
         }
@@ -80,7 +81,7 @@ class ResultSearch extends React.Component {
                     </Col>
                     <Row className={styles.positionContainer}>
                         <Col sm={2} md={2} className={styles.positionCardCharacter}>
-                            <CharacterSheet {...characterSheet} />
+                            <CharacterSheet {...characterSheet} region={region} realm={realm} name={name} />
                         </Col>
                         <Col sm={2} md={2}>
                             <CharacterProgress title="Antorus the Burning Throne" {...antorus} />
