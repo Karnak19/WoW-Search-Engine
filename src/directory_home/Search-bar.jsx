@@ -69,12 +69,27 @@ class SearchBar extends Component {
                             EU
                         </Dropdown.Item>
                     </DropdownButton>
-                    <FormControl className={styles.searchBarForm} placeholder="What realm?" value1={this.state.value} onChange={this.handleChange1} />
+                    <FormControl
+                        className={styles.searchBarForm}
+                        placeholder="What realm?"
+                        value1={this.state.value}
+                        onChange={this.handleChange1}
+                        onKeyPress={event => {
+                            if (event.key === "Enter") {
+                                event.preventDefault();
+                                document.getElementById("buttonSearch").click();
+                            }
+                        }}
+                    />
                     <FormControl className={styles.searchBarForm} placeholder="Your Search" value2={this.state.value} onChange={this.handleChange2} />
                 </InputGroup>
 
                 <Link to={`/result-search/${realmInput}/${inputValue}/${region}`}>
-                    <Button className={styles.buttonSearch} disabled={!this.state.value1 || !this.state.value2} onClick={this.handleClick}>
+                    <Button
+                        className={styles.buttonSearch}
+                        disabled={!this.state.value1 || !this.state.value2 || !this.state.region}
+                        onClick={this.handleClick}
+                    >
                         Search
                     </Button>
                 </Link>
