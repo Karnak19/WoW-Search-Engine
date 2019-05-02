@@ -8,6 +8,11 @@
     width: 800px;
 }
 
+.buttonRegion {
+    font-family: "Comfortaa", cursive;
+    font-size: 1.5em;
+}
+
 .searchBarForm {
     font-family: "Comfortaa", cursive;
     font-size: 1.5em;
@@ -31,4 +36,13 @@
 .buttonSearch:hover {
     background-color: gold;
     color: rgb(83, 42, 8);
+}
+
+.buttonSearch:disabled {
+    background-color: rgb(83, 42, 8);
+    color: gold;
+    border: rgb(83, 42, 8);
+    opacity: 1;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }

@@ -1,12 +1,14 @@
 import React from "react";
 import Axios from "axios";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Container, Row, Col } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import "../App.css";
 
+import styles from "./displayCharacter.module.css";
 import CharacterSheet from "./CharacterSheet";
 import Layout from "../aside/Layout";
 import CharacterProgress from "./CharacterProgress";
+import CharacterDungeon from "./CharacterDungeon";
 
 
 class ResultSearch extends React.Component {
@@ -114,19 +116,9 @@ class ResultSearch extends React.Component {
         <CharacterProgress {...trial} />
         <h5>Uldir</h5>
         <CharacterProgress {...uldir} />
-        {/* <div>
-                    {this.state.mplus.map((dungeon, i) => {
-                        return (
-                            <ul key={i}>
-                                <li>{dungeon.dungeon.toUpperCase()}</li>
-                                <li>{dungeon.score}</li>
-                                <li>{dungeon.mythic_level}</li>
-                            </ul>
-                        );
-                    })}
-                </div> */}
       </Layout>
     );
   }
+
 }
 export default ResultSearch;
