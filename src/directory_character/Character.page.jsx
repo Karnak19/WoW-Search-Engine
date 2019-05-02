@@ -43,31 +43,34 @@ class ResultSearch extends React.Component {
                 headers: { Accept: "application/json" }
             })
         ])
-            .then(
-                Axios.spread((sheet, progress, mplus) => {
-                    let mplusRuns = mplus.data["mythic_plus_best_runs"];
-                    this.setState({
-                        characterSheet: sheet.data,
-                        antorus: progress.data.raid_progression["antorus-the-burning-throne"],
-                        bod: progress.data.raid_progression["battle-of-dazaralor"],
-                        crucible: progress.data.raid_progression["crucible-of-storms"],
-                        emerald: progress.data.raid_progression["the-emerald-nightmare"],
-                        nighthold: progress.data.raid_progression["the-nighthold"],
-                        sargeras: progress.data.raid_progression["tomb-of-sargeras"],
-                        trial: progress.data.raid_progression["trial-of-valor"],
-                        uldir: progress.data.raid_progression["uldir"],
-                        mplus: mplusRuns,
-                        isLoading: false
-                    });
-                })
-            )
-            .catch({ isError: true });
+            .then(([sheet, progress, mplus]) => {
+                let mplusRuns = mplus.data["mythic_plus_best_runs"];
+                this.setState({
+                    characterSheet: sheet.data,
+                    antorus: progress.data.raid_progression["antorus-the-burning-throne"],
+                    bod: progress.data.raid_progression["battle-of-dazaralor"],
+                    crucible: progress.data.raid_progression["crucible-of-storms"],
+                    emerald: progress.data.raid_progression["the-emerald-nightmare"],
+                    nighthold: progress.data.raid_progression["the-nighthold"],
+                    sargeras: progress.data.raid_progression["tomb-of-sargeras"],
+                    trial: progress.data.raid_progression["trial-of-valor"],
+                    uldir: progress.data.raid_progression["uldir"],
+                    mplus: mplusRuns,
+                    isLoading: false
+                });
+            })
+            .catch(error => {
+                this.setState({
+                    isError: true
+                });
+            });
     }
 
     render() {
         const { characterSheet, uldir, antorus, bod, crucible, emerald, nighthold, sargeras, trial, isError, isLoading } = this.state;
+        const { realm, name, region } = this.props.match.params;
         if (isError) {
-            return <Redirect to="/" />;
+            return <Redirect to="/error" />;
         }
         if (isLoading) {
             return <Spinner className="spinner" animation="grow" variant="warning" />;
@@ -80,7 +83,7 @@ class ResultSearch extends React.Component {
                     </Col>
                     <Row className={styles.positionContainer}>
                         <Col sm={2} md={2} className={styles.positionCardCharacter}>
-                            <CharacterSheet {...characterSheet} />
+                            <CharacterSheet {...characterSheet} region={region} realm={realm} name={name} />
                         </Col>
                         <Col sm={2} md={2}>
                             <CharacterProgress title="Antorus the Burning Throne" {...antorus} />
@@ -99,7 +102,6 @@ class ResultSearch extends React.Component {
                             <CharacterProgress title="Trial of Valor" {...trial} />
                         </Col>
                     </Row>
-
                     <Col className={styles.positionTitle}>
                         <h3>Top three Dungeons</h3>
                     </Col>
@@ -118,4 +120,5 @@ class ResultSearch extends React.Component {
         );
     }
 }
+
 export default ResultSearch;
