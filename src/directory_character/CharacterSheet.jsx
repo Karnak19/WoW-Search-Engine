@@ -19,8 +19,13 @@ function CharacterSheet(props) {
                             Level : {level}
                         </Card.Text>
                         <Button className={styles.buttonCharacter}>
-                            <a style={{ textDecoration: "none" }} href={props.profile_url} target="_blank" rel="noopener noreferrer">
-                                Page Official
+                            <a
+                                style={{ textDecoration: "none" }}
+                                href={`https://worldofwarcraft.com/en-en/character/${props.region}/${props.realm}/${props.name}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Official Page
                             </a>
                         </Button>
                     </Card.Body>

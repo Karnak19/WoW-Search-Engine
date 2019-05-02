@@ -75,50 +75,38 @@ class ResultSearch extends React.Component {
         });
       });
   }
-
-  render() {
-    const {
-      characterSheet,
-      uldir,
-      antorus,
-      bod,
-      crucible,
-      emerald,
-      nighthold,
-      sargeras,
-      trial,
-      isError,
-      isLoading
-    } = this.state;
-    if (isError) {
-      return <Redirect to="/error" />;
-    }
-    if (isLoading) {
-      return <Spinner animation="border" variant="danger" />;
-    }
-    return (
-      <Layout>
-        <CharacterSheet {...characterSheet} />
-        <h3>All Raid Progression</h3>
-        <h5>Antorus the burning throne</h5>
-        <CharacterProgress {...antorus} />
-        <h5>Battle of dazaralor</h5>
-        <CharacterProgress {...bod} />
-        <h5>Crucible of storms</h5>
-        <CharacterProgress {...crucible} />
-        <h5>The emerald nightmare</h5>
-        <CharacterProgress {...emerald} />
-        <h5>The nighthold</h5>
-        <CharacterProgress {...nighthold} />
-        <h5>Tomb of Sargeras</h5>
-        <CharacterProgress {...sargeras} />
-        <h5>Trial of valor</h5>
-        <CharacterProgress {...trial} />
-        <h5>Uldir</h5>
-        <CharacterProgress {...uldir} />
-      </Layout>
-    );
-  }
-
-}
+  
+ render() {
+        const { characterSheet, uldir, antorus, bod, crucible, emerald, nighthold, sargeras, trial, isError, isLoading } = this.state;
+        const { realm, name, region } = this.props.match.params;
+        if (isError) {
+            return <Redirect to="/" />;
+        return (
+            <Layout>
+                <Container fluid>
+                    <Col className={styles.positionTitle}>
+                        <h3>All Raid Progression</h3>
+                    </Col>
+                    <Row className={styles.positionContainer}>
+                        <Col sm={2} md={2} className={styles.positionCardCharacter}>
+                            <CharacterSheet {...characterSheet} region={region} realm={realm} name={name} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="Antorus the Burning Throne" {...antorus} />
+                            <CharacterProgress title="Crucible of Storms" {...crucible} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="Battle of Dazaralor" {...bod} />
+                            <CharacterProgress title="The Nighthold" {...nighthold} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="Uldir" {...uldir} />
+                            <CharacterProgress title="Tomb of Sargeras" {...sargeras} />
+                        </Col>
+                        <Col sm={2} md={2}>
+                            <CharacterProgress title="The Emerald Nightmare" {...emerald} />
+                            <CharacterProgress title="Trial of Valor" {...trial} />
+                        </Col>
+                    </Row>
+                  
 export default ResultSearch;
